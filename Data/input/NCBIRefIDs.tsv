@@ -1,0 +1,24 @@
+#AcetogenIDs = [
+574087	Acetohalobium arabaticum
+931626	Acetobacterium woodii
+264732	Moorella thermoacetica
+33035	Blautia producta
+1123288	Sporomusa ovata
+903814	Eubacterium limosum
+748727	Clostridium ljungdahlii
+545694	Treponema primitia
+903818	Holophaga foetida
+#MethanogenIDs = # 10.1007/s11515-011-1154-2
+243232	Methanocaldococcus jannaschii
+426368	Methanococcus maripaludis
+192952	Methanosarcina mazei
+323259	Methanospirillum hungatei
+304371	Methanocella paludicola
+410358	Methanocorpusculum labreanum
+456320	Methanococcus voltae
+419665	Methanococcus aeolicus
+339860	Methanosphaera stadtmanae
+#OutgroupIDs
+186497	Pyrococcus furiosus # outgroup
+155864	Escherichia coli # outgroup
+224308	Bacillus subtilis # outgroup

@@ -1,0 +1,944 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count    min threads    max threads
+--------------------  -------  -------------  -------------
+GatherFASTAs                1              1              1
+OFOG_Representatives        1              1              1
+all                         1              1              1
+download_UP                 1              1              1
+gunzip_UP                  67              1              1
+orthofinder                 1              4              4
+total                      72              1              4
+
+Select jobs to execute...
+
+[Wed Oct 25 12:35:22 2023]
+rule download_UP:
+    output: Data/input/Proteomes/UP000321408.fasta.gz, Data/input/Proteomes/UP000723406.fasta.gz, Data/input/Proteomes/UP000070043.fasta.gz, Data/input/Proteomes/UP000070149.fasta.gz, Data/input/Proteomes/UP000070599.fasta.gz, Data/input/Proteomes/UP000185561.fasta.gz, Data/input/Proteomes/UP000186239.fasta.gz, Data/input/Proteomes/UP000228988.fasta.gz, Data/input/Proteomes/UP000245584.fasta.gz, Data/input/Proteomes/UP000265899.fasta.gz, Data/input/Proteomes/UP000266048.fasta.gz, Data/input/Proteomes/UP000266374.fasta.gz, Data/input/Proteomes/UP000274362.fasta.gz, Data/input/Proteomes/UP000279561.fasta.gz, Data/input/Proteomes/UP000319007.fasta.gz, Data/input/Proteomes/UP000319077.fasta.gz, Data/input/Proteomes/UP000320864.fasta.gz, Data/input/Proteomes/UP000324665.fasta.gz, Data/input/Proteomes/UP000619436.fasta.gz, Data/input/Proteomes/UP000645858.fasta.gz, Data/input/Proteomes/UP000706067.fasta.gz, Data/input/Proteomes/UP000186063.fasta.gz, Data/input/Proteomes/UP000186209.fasta.gz, Data/input/Proteomes/UP000315391.fasta.gz, Data/input/Proteomes/UP000315475.fasta.gz, Data/input/Proteomes/UP000315741.fasta.gz, Data/input/Proteomes/UP000315921.fasta.gz, Data/input/Proteomes/UP000317027.fasta.gz, Data/input/Proteomes/UP000317179.fasta.gz, Data/input/Proteomes/UP000317346.fasta.gz, Data/input/Proteomes/UP000317403.fasta.gz, Data/input/Proteomes/UP000317466.fasta.gz, Data/input/Proteomes/UP000317680.fasta.gz, Data/input/Proteomes/UP000318115.fasta.gz, Data/input/Proteomes/UP000318839.fasta.gz, Data/input/Proteomes/UP000318994.fasta.gz, Data/input/Proteomes/UP000319869.fasta.gz, Data/input/Proteomes/UP000319889.fasta.gz, Data/input/Proteomes/UP000320434.fasta.gz, Data/input/Proteomes/UP000320621.fasta.gz, Data/input/Proteomes/UP000320670.fasta.gz, Data/input/Proteomes/UP000320844.fasta.gz, Data/input/Proteomes/UP000322103.fasta.gz, Data/input/Proteomes/UP000322882.fasta.gz, Data/input/Proteomes/UP000323018.fasta.gz, Data/input/Proteomes/UP000538462.fasta.gz, Data/input/Proteomes/UP000556275.fasta.gz, Data/input/Proteomes/UP000610226.fasta.gz, Data/input/Proteomes/UP000621573.fasta.gz, Data/input/Proteomes/UP000625964.fasta.gz, Data/input/Proteomes/UP000634061.fasta.gz, Data/input/Proteomes/UP000678182.fasta.gz, Data/input/Proteomes/UP000696993.fasta.gz, Data/input/Proteomes/UP000700897.fasta.gz, Data/input/Proteomes/UP000721749.fasta.gz, Data/input/Proteomes/UP000729503.fasta.gz, Data/input/Proteomes/UP000738095.fasta.gz, Data/input/Proteomes/UP000751408.fasta.gz, Data/input/Proteomes/UP000760201.fasta.gz, Data/input/Proteomes/UP000771954.fasta.gz, Data/input/Proteomes/UP000775429.fasta.gz, Data/input/Proteomes/UP000777023.fasta.gz, Data/input/Proteomes/UP000825566.fasta.gz, Data/input/Proteomes/UP000825906.fasta.gz, Data/input/Proteomes/UP000826397.fasta.gz, Data/input/Proteomes/UP000826686.fasta.gz, Data/input/Proteomes/UP000826833.fasta.gz
+    jobid: 2
+    reason: Missing output files: Data/input/Proteomes/UP000321408.fasta.gz, Data/input/Proteomes/UP000324665.fasta.gz, Data/input/Proteomes/UP000315741.fasta.gz, Data/input/Proteomes/UP000279561.fasta.gz, Data/input/Proteomes/UP000760201.fasta.gz, Data/input/Proteomes/UP000826833.fasta.gz, Data/input/Proteomes/UP000320621.fasta.gz, Data/input/Proteomes/UP000706067.fasta.gz, Data/input/Proteomes/UP000245584.fasta.gz, Data/input/Proteomes/UP000319889.fasta.gz, Data/input/Proteomes/UP000266048.fasta.gz, Data/input/Proteomes/UP000634061.fasta.gz, Data/input/Proteomes/UP000317346.fasta.gz, Data/input/Proteomes/UP000317680.fasta.gz, Data/input/Proteomes/UP000556275.fasta.gz, Data/input/Proteomes/UP000318994.fasta.gz, Data/input/Proteomes/UP000317466.fasta.gz, Data/input/Proteomes/UP000645858.fasta.gz, Data/input/Proteomes/UP000317027.fasta.gz, Data/input/Proteomes/UP000317403.fasta.gz, Data/input/Proteomes/UP000322882.fasta.gz, Data/input/Proteomes/UP000621573.fasta.gz, Data/input/Proteomes/UP000678182.fasta.gz, Data/input/Proteomes/UP000186209.fasta.gz, Data/input/Proteomes/UP000696993.fasta.gz, Data/input/Proteomes/UP000317179.fasta.gz, Data/input/Proteomes/UP000738095.fasta.gz, Data/input/Proteomes/UP000070043.fasta.gz, Data/input/Proteomes/UP000318839.fasta.gz, Data/input/Proteomes/UP000320434.fasta.gz, Data/input/Proteomes/UP000315921.fasta.gz, Data/input/Proteomes/UP000274362.fasta.gz, Data/input/Proteomes/UP000723406.fasta.gz, Data/input/Proteomes/UP000721749.fasta.gz, Data/input/Proteomes/UP000228988.fasta.gz, Data/input/Proteomes/UP000825566.fasta.gz, Data/input/Proteomes/UP000610226.fasta.gz, Data/input/Proteomes/UP000777023.fasta.gz, Data/input/Proteomes/UP000320844.fasta.gz, Data/input/Proteomes/UP000625964.fasta.gz, Data/input/Proteomes/UP000826397.fasta.gz, Data/input/Proteomes/UP000825906.fasta.gz, Data/input/Proteomes/UP000619436.fasta.gz, Data/input/Proteomes/UP000322103.fasta.gz, Data/input/Proteomes/UP000319077.fasta.gz, Data/input/Proteomes/UP000186239.fasta.gz, Data/input/Proteomes/UP000320670.fasta.gz, Data/input/Proteomes/UP000186063.fasta.gz, Data/input/Proteomes/UP000323018.fasta.gz, Data/input/Proteomes/UP000266374.fasta.gz, Data/input/Proteomes/UP000315475.fasta.gz, Data/input/Proteomes/UP000729503.fasta.gz, Data/input/Proteomes/UP000771954.fasta.gz, Data/input/Proteomes/UP000318115.fasta.gz, Data/input/Proteomes/UP000826686.fasta.gz, Data/input/Proteomes/UP000320864.fasta.gz, Data/input/Proteomes/UP000315391.fasta.gz, Data/input/Proteomes/UP000070149.fasta.gz, Data/input/Proteomes/UP000319007.fasta.gz, Data/input/Proteomes/UP000775429.fasta.gz, Data/input/Proteomes/UP000185561.fasta.gz, Data/input/Proteomes/UP000070599.fasta.gz, Data/input/Proteomes/UP000700897.fasta.gz, Data/input/Proteomes/UP000265899.fasta.gz, Data/input/Proteomes/UP000319869.fasta.gz, Data/input/Proteomes/UP000538462.fasta.gz, Data/input/Proteomes/UP000751408.fasta.gz
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:48 2023]
+Finished job 2.
+1 of 72 steps (1%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000320844.fasta.gz
+    output: Data/input/Proteomes/UP000320844.fasta
+    jobid: 43
+    reason: Missing output files: Data/input/Proteomes/UP000320844.fasta; Input files updated by another job: Data/input/Proteomes/UP000320844.fasta.gz
+    wildcards: UPID=UP000320844
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000274362.fasta.gz
+    output: Data/input/Proteomes/UP000274362.fasta
+    jobid: 14
+    reason: Missing output files: Data/input/Proteomes/UP000274362.fasta; Input files updated by another job: Data/input/Proteomes/UP000274362.fasta.gz
+    wildcards: UPID=UP000274362
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000777023.fasta.gz
+    output: Data/input/Proteomes/UP000777023.fasta
+    jobid: 63
+    reason: Missing output files: Data/input/Proteomes/UP000777023.fasta; Input files updated by another job: Data/input/Proteomes/UP000777023.fasta.gz
+    wildcards: UPID=UP000777023
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000729503.fasta.gz
+    output: Data/input/Proteomes/UP000729503.fasta
+    jobid: 57
+    reason: Missing output files: Data/input/Proteomes/UP000729503.fasta; Input files updated by another job: Data/input/Proteomes/UP000729503.fasta.gz
+    wildcards: UPID=UP000729503
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:49 2023]
+Finished job 43.
+2 of 72 steps (3%) done
+[Wed Oct 25 12:35:49 2023]
+Finished job 14.
+3 of 72 steps (4%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000318115.fasta.gz
+    output: Data/input/Proteomes/UP000318115.fasta
+    jobid: 35
+    reason: Missing output files: Data/input/Proteomes/UP000318115.fasta; Input files updated by another job: Data/input/Proteomes/UP000318115.fasta.gz
+    wildcards: UPID=UP000318115
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000185561.fasta.gz
+    output: Data/input/Proteomes/UP000185561.fasta
+    jobid: 7
+    reason: Missing output files: Data/input/Proteomes/UP000185561.fasta; Input files updated by another job: Data/input/Proteomes/UP000185561.fasta.gz
+    wildcards: UPID=UP000185561
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:49 2023]
+Finished job 63.
+4 of 72 steps (6%) done
+[Wed Oct 25 12:35:49 2023]
+Finished job 57.
+5 of 72 steps (7%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000645858.fasta.gz
+    output: Data/input/Proteomes/UP000645858.fasta
+    jobid: 21
+    reason: Missing output files: Data/input/Proteomes/UP000645858.fasta; Input files updated by another job: Data/input/Proteomes/UP000645858.fasta.gz
+    wildcards: UPID=UP000645858
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000610226.fasta.gz
+    output: Data/input/Proteomes/UP000610226.fasta
+    jobid: 49
+    reason: Missing output files: Data/input/Proteomes/UP000610226.fasta; Input files updated by another job: Data/input/Proteomes/UP000610226.fasta.gz
+    wildcards: UPID=UP000610226
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:49 2023]
+Finished job 35.
+6 of 72 steps (8%) done
+[Wed Oct 25 12:35:49 2023]
+Finished job 7.
+7 of 72 steps (10%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000721749.fasta.gz
+    output: Data/input/Proteomes/UP000721749.fasta
+    jobid: 56
+    reason: Missing output files: Data/input/Proteomes/UP000721749.fasta; Input files updated by another job: Data/input/Proteomes/UP000721749.fasta.gz
+    wildcards: UPID=UP000721749
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000279561.fasta.gz
+    output: Data/input/Proteomes/UP000279561.fasta
+    jobid: 15
+    reason: Missing output files: Data/input/Proteomes/UP000279561.fasta; Input files updated by another job: Data/input/Proteomes/UP000279561.fasta.gz
+    wildcards: UPID=UP000279561
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:49 2023]
+Finished job 21.
+8 of 72 steps (11%) done
+[Wed Oct 25 12:35:49 2023]
+Finished job 49.
+9 of 72 steps (12%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000315921.fasta.gz
+    output: Data/input/Proteomes/UP000315921.fasta
+    jobid: 28
+    reason: Missing output files: Data/input/Proteomes/UP000315921.fasta; Input files updated by another job: Data/input/Proteomes/UP000315921.fasta.gz
+    wildcards: UPID=UP000315921
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000317027.fasta.gz
+    output: Data/input/Proteomes/UP000317027.fasta
+    jobid: 29
+    reason: Missing output files: Data/input/Proteomes/UP000317027.fasta; Input files updated by another job: Data/input/Proteomes/UP000317027.fasta.gz
+    wildcards: UPID=UP000317027
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:49 2023]
+Finished job 56.
+10 of 72 steps (14%) done
+[Wed Oct 25 12:35:49 2023]
+Finished job 15.
+11 of 72 steps (15%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000321408.fasta.gz
+    output: Data/input/Proteomes/UP000321408.fasta
+    jobid: 1
+    reason: Missing output files: Data/input/Proteomes/UP000321408.fasta; Input files updated by another job: Data/input/Proteomes/UP000321408.fasta.gz
+    wildcards: UPID=UP000321408
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000706067.fasta.gz
+    output: Data/input/Proteomes/UP000706067.fasta
+    jobid: 22
+    reason: Missing output files: Data/input/Proteomes/UP000706067.fasta; Input files updated by another job: Data/input/Proteomes/UP000706067.fasta.gz
+    wildcards: UPID=UP000706067
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:49 2023]
+Finished job 28.
+12 of 72 steps (17%) done
+[Wed Oct 25 12:35:49 2023]
+Finished job 29.
+13 of 72 steps (18%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000318839.fasta.gz
+    output: Data/input/Proteomes/UP000318839.fasta
+    jobid: 36
+    reason: Missing output files: Data/input/Proteomes/UP000318839.fasta; Input files updated by another job: Data/input/Proteomes/UP000318839.fasta.gz
+    wildcards: UPID=UP000318839
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000825566.fasta.gz
+    output: Data/input/Proteomes/UP000825566.fasta
+    jobid: 64
+    reason: Missing output files: Data/input/Proteomes/UP000825566.fasta; Input files updated by another job: Data/input/Proteomes/UP000825566.fasta.gz
+    wildcards: UPID=UP000825566
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:49 2023]
+Finished job 22.
+14 of 72 steps (19%) done
+[Wed Oct 25 12:35:49 2023]
+Finished job 1.
+15 of 72 steps (21%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000186239.fasta.gz
+    output: Data/input/Proteomes/UP000186239.fasta
+    jobid: 8
+    reason: Missing output files: Data/input/Proteomes/UP000186239.fasta; Input files updated by another job: Data/input/Proteomes/UP000186239.fasta.gz
+    wildcards: UPID=UP000186239
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000621573.fasta.gz
+    output: Data/input/Proteomes/UP000621573.fasta
+    jobid: 50
+    reason: Missing output files: Data/input/Proteomes/UP000621573.fasta; Input files updated by another job: Data/input/Proteomes/UP000621573.fasta.gz
+    wildcards: UPID=UP000621573
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:49 2023]
+Finished job 36.
+16 of 72 steps (22%) done
+[Wed Oct 25 12:35:49 2023]
+Finished job 64.
+17 of 72 steps (24%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000319007.fasta.gz
+    output: Data/input/Proteomes/UP000319007.fasta
+    jobid: 16
+    reason: Missing output files: Data/input/Proteomes/UP000319007.fasta; Input files updated by another job: Data/input/Proteomes/UP000319007.fasta.gz
+    wildcards: UPID=UP000319007
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000317179.fasta.gz
+    output: Data/input/Proteomes/UP000317179.fasta
+    jobid: 30
+    reason: Missing output files: Data/input/Proteomes/UP000317179.fasta; Input files updated by another job: Data/input/Proteomes/UP000317179.fasta.gz
+    wildcards: UPID=UP000317179
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:49 2023]
+Finished job 8.
+18 of 72 steps (25%) done
+[Wed Oct 25 12:35:49 2023]
+Finished job 50.
+19 of 72 steps (26%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000738095.fasta.gz
+    output: Data/input/Proteomes/UP000738095.fasta
+    jobid: 58
+    reason: Missing output files: Data/input/Proteomes/UP000738095.fasta; Input files updated by another job: Data/input/Proteomes/UP000738095.fasta.gz
+    wildcards: UPID=UP000738095
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000322103.fasta.gz
+    output: Data/input/Proteomes/UP000322103.fasta
+    jobid: 44
+    reason: Missing output files: Data/input/Proteomes/UP000322103.fasta; Input files updated by another job: Data/input/Proteomes/UP000322103.fasta.gz
+    wildcards: UPID=UP000322103
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:49 2023]
+Finished job 16.
+20 of 72 steps (28%) done
+[Wed Oct 25 12:35:49 2023]
+Finished job 30.
+21 of 72 steps (29%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000625964.fasta.gz
+    output: Data/input/Proteomes/UP000625964.fasta
+    jobid: 51
+    reason: Missing output files: Data/input/Proteomes/UP000625964.fasta; Input files updated by another job: Data/input/Proteomes/UP000625964.fasta.gz
+    wildcards: UPID=UP000625964
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000186063.fasta.gz
+    output: Data/input/Proteomes/UP000186063.fasta
+    jobid: 23
+    reason: Missing output files: Data/input/Proteomes/UP000186063.fasta; Input files updated by another job: Data/input/Proteomes/UP000186063.fasta.gz
+    wildcards: UPID=UP000186063
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:49 2023]
+Finished job 58.
+22 of 72 steps (31%) done
+[Wed Oct 25 12:35:49 2023]
+Finished job 44.
+23 of 72 steps (32%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000825906.fasta.gz
+    output: Data/input/Proteomes/UP000825906.fasta
+    jobid: 65
+    reason: Missing output files: Data/input/Proteomes/UP000825906.fasta; Input files updated by another job: Data/input/Proteomes/UP000825906.fasta.gz
+    wildcards: UPID=UP000825906
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000318994.fasta.gz
+    output: Data/input/Proteomes/UP000318994.fasta
+    jobid: 37
+    reason: Missing output files: Data/input/Proteomes/UP000318994.fasta; Input files updated by another job: Data/input/Proteomes/UP000318994.fasta.gz
+    wildcards: UPID=UP000318994
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:49 2023]
+Finished job 51.
+24 of 72 steps (33%) done
+[Wed Oct 25 12:35:49 2023]
+Finished job 23.
+25 of 72 steps (35%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000319077.fasta.gz
+    output: Data/input/Proteomes/UP000319077.fasta
+    jobid: 17
+    reason: Missing output files: Data/input/Proteomes/UP000319077.fasta; Input files updated by another job: Data/input/Proteomes/UP000319077.fasta.gz
+    wildcards: UPID=UP000319077
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000228988.fasta.gz
+    output: Data/input/Proteomes/UP000228988.fasta
+    jobid: 9
+    reason: Missing output files: Data/input/Proteomes/UP000228988.fasta; Input files updated by another job: Data/input/Proteomes/UP000228988.fasta.gz
+    wildcards: UPID=UP000228988
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:49 2023]
+Finished job 65.
+26 of 72 steps (36%) done
+[Wed Oct 25 12:35:49 2023]
+Finished job 37.
+27 of 72 steps (38%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000317346.fasta.gz
+    output: Data/input/Proteomes/UP000317346.fasta
+    jobid: 31
+    reason: Missing output files: Data/input/Proteomes/UP000317346.fasta; Input files updated by another job: Data/input/Proteomes/UP000317346.fasta.gz
+    wildcards: UPID=UP000317346
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000322882.fasta.gz
+    output: Data/input/Proteomes/UP000322882.fasta
+    jobid: 45
+    reason: Missing output files: Data/input/Proteomes/UP000322882.fasta; Input files updated by another job: Data/input/Proteomes/UP000322882.fasta.gz
+    wildcards: UPID=UP000322882
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:49 2023]
+Finished job 17.
+28 of 72 steps (39%) done
+[Wed Oct 25 12:35:49 2023]
+Finished job 9.
+29 of 72 steps (40%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000723406.fasta.gz
+    output: Data/input/Proteomes/UP000723406.fasta
+    jobid: 3
+    reason: Missing output files: Data/input/Proteomes/UP000723406.fasta; Input files updated by another job: Data/input/Proteomes/UP000723406.fasta.gz
+    wildcards: UPID=UP000723406
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000751408.fasta.gz
+    output: Data/input/Proteomes/UP000751408.fasta
+    jobid: 59
+    reason: Missing output files: Data/input/Proteomes/UP000751408.fasta; Input files updated by another job: Data/input/Proteomes/UP000751408.fasta.gz
+    wildcards: UPID=UP000751408
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:49 2023]
+Finished job 31.
+30 of 72 steps (42%) done
+[Wed Oct 25 12:35:49 2023]
+Finished job 45.
+31 of 72 steps (43%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000319869.fasta.gz
+    output: Data/input/Proteomes/UP000319869.fasta
+    jobid: 38
+    reason: Missing output files: Data/input/Proteomes/UP000319869.fasta; Input files updated by another job: Data/input/Proteomes/UP000319869.fasta.gz
+    wildcards: UPID=UP000319869
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:49 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000245584.fasta.gz
+    output: Data/input/Proteomes/UP000245584.fasta
+    jobid: 10
+    reason: Missing output files: Data/input/Proteomes/UP000245584.fasta; Input files updated by another job: Data/input/Proteomes/UP000245584.fasta.gz
+    wildcards: UPID=UP000245584
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:49 2023]
+Finished job 3.
+32 of 72 steps (44%) done
+[Wed Oct 25 12:35:49 2023]
+Finished job 59.
+33 of 72 steps (46%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000186209.fasta.gz
+    output: Data/input/Proteomes/UP000186209.fasta
+    jobid: 24
+    reason: Missing output files: Data/input/Proteomes/UP000186209.fasta; Input files updated by another job: Data/input/Proteomes/UP000186209.fasta.gz
+    wildcards: UPID=UP000186209
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000634061.fasta.gz
+    output: Data/input/Proteomes/UP000634061.fasta
+    jobid: 52
+    reason: Missing output files: Data/input/Proteomes/UP000634061.fasta; Input files updated by another job: Data/input/Proteomes/UP000634061.fasta.gz
+    wildcards: UPID=UP000634061
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 38.
+34 of 72 steps (47%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 10.
+35 of 72 steps (49%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000070043.fasta.gz
+    output: Data/input/Proteomes/UP000070043.fasta
+    jobid: 4
+    reason: Missing output files: Data/input/Proteomes/UP000070043.fasta; Input files updated by another job: Data/input/Proteomes/UP000070043.fasta.gz
+    wildcards: UPID=UP000070043
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000826397.fasta.gz
+    output: Data/input/Proteomes/UP000826397.fasta
+    jobid: 66
+    reason: Missing output files: Data/input/Proteomes/UP000826397.fasta; Input files updated by another job: Data/input/Proteomes/UP000826397.fasta.gz
+    wildcards: UPID=UP000826397
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 24.
+36 of 72 steps (50%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 52.
+37 of 72 steps (51%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000323018.fasta.gz
+    output: Data/input/Proteomes/UP000323018.fasta
+    jobid: 46
+    reason: Missing output files: Data/input/Proteomes/UP000323018.fasta; Input files updated by another job: Data/input/Proteomes/UP000323018.fasta.gz
+    wildcards: UPID=UP000323018
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000317403.fasta.gz
+    output: Data/input/Proteomes/UP000317403.fasta
+    jobid: 32
+    reason: Missing output files: Data/input/Proteomes/UP000317403.fasta; Input files updated by another job: Data/input/Proteomes/UP000317403.fasta.gz
+    wildcards: UPID=UP000317403
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 4.
+38 of 72 steps (53%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 66.
+39 of 72 steps (54%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000320864.fasta.gz
+    output: Data/input/Proteomes/UP000320864.fasta
+    jobid: 18
+    reason: Missing output files: Data/input/Proteomes/UP000320864.fasta; Input files updated by another job: Data/input/Proteomes/UP000320864.fasta.gz
+    wildcards: UPID=UP000320864
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000760201.fasta.gz
+    output: Data/input/Proteomes/UP000760201.fasta
+    jobid: 60
+    reason: Missing output files: Data/input/Proteomes/UP000760201.fasta; Input files updated by another job: Data/input/Proteomes/UP000760201.fasta.gz
+    wildcards: UPID=UP000760201
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 32.
+40 of 72 steps (56%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 46.
+41 of 72 steps (57%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000265899.fasta.gz
+    output: Data/input/Proteomes/UP000265899.fasta
+    jobid: 11
+    reason: Missing output files: Data/input/Proteomes/UP000265899.fasta; Input files updated by another job: Data/input/Proteomes/UP000265899.fasta.gz
+    wildcards: UPID=UP000265899
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000319889.fasta.gz
+    output: Data/input/Proteomes/UP000319889.fasta
+    jobid: 39
+    reason: Missing output files: Data/input/Proteomes/UP000319889.fasta; Input files updated by another job: Data/input/Proteomes/UP000319889.fasta.gz
+    wildcards: UPID=UP000319889
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 18.
+42 of 72 steps (58%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 60.
+43 of 72 steps (60%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000315391.fasta.gz
+    output: Data/input/Proteomes/UP000315391.fasta
+    jobid: 25
+    reason: Missing output files: Data/input/Proteomes/UP000315391.fasta; Input files updated by another job: Data/input/Proteomes/UP000315391.fasta.gz
+    wildcards: UPID=UP000315391
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000826686.fasta.gz
+    output: Data/input/Proteomes/UP000826686.fasta
+    jobid: 67
+    reason: Missing output files: Data/input/Proteomes/UP000826686.fasta; Input files updated by another job: Data/input/Proteomes/UP000826686.fasta.gz
+    wildcards: UPID=UP000826686
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 11.
+44 of 72 steps (61%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 39.
+45 of 72 steps (62%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000678182.fasta.gz
+    output: Data/input/Proteomes/UP000678182.fasta
+    jobid: 53
+    reason: Missing output files: Data/input/Proteomes/UP000678182.fasta; Input files updated by another job: Data/input/Proteomes/UP000678182.fasta.gz
+    wildcards: UPID=UP000678182
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000070149.fasta.gz
+    output: Data/input/Proteomes/UP000070149.fasta
+    jobid: 5
+    reason: Missing output files: Data/input/Proteomes/UP000070149.fasta; Input files updated by another job: Data/input/Proteomes/UP000070149.fasta.gz
+    wildcards: UPID=UP000070149
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 25.
+46 of 72 steps (64%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 67.
+47 of 72 steps (65%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000324665.fasta.gz
+    output: Data/input/Proteomes/UP000324665.fasta
+    jobid: 19
+    reason: Missing output files: Data/input/Proteomes/UP000324665.fasta; Input files updated by another job: Data/input/Proteomes/UP000324665.fasta.gz
+    wildcards: UPID=UP000324665
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000317466.fasta.gz
+    output: Data/input/Proteomes/UP000317466.fasta
+    jobid: 33
+    reason: Missing output files: Data/input/Proteomes/UP000317466.fasta; Input files updated by another job: Data/input/Proteomes/UP000317466.fasta.gz
+    wildcards: UPID=UP000317466
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 53.
+48 of 72 steps (67%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 5.
+49 of 72 steps (68%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000696993.fasta.gz
+    output: Data/input/Proteomes/UP000696993.fasta
+    jobid: 54
+    reason: Missing output files: Data/input/Proteomes/UP000696993.fasta; Input files updated by another job: Data/input/Proteomes/UP000696993.fasta.gz
+    wildcards: UPID=UP000696993
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000320434.fasta.gz
+    output: Data/input/Proteomes/UP000320434.fasta
+    jobid: 40
+    reason: Missing output files: Data/input/Proteomes/UP000320434.fasta; Input files updated by another job: Data/input/Proteomes/UP000320434.fasta.gz
+    wildcards: UPID=UP000320434
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 19.
+50 of 72 steps (69%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 33.
+51 of 72 steps (71%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000070599.fasta.gz
+    output: Data/input/Proteomes/UP000070599.fasta
+    jobid: 6
+    reason: Missing output files: Data/input/Proteomes/UP000070599.fasta; Input files updated by another job: Data/input/Proteomes/UP000070599.fasta.gz
+    wildcards: UPID=UP000070599
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000619436.fasta.gz
+    output: Data/input/Proteomes/UP000619436.fasta
+    jobid: 20
+    reason: Missing output files: Data/input/Proteomes/UP000619436.fasta; Input files updated by another job: Data/input/Proteomes/UP000619436.fasta.gz
+    wildcards: UPID=UP000619436
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 54.
+52 of 72 steps (72%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 40.
+53 of 72 steps (74%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000317680.fasta.gz
+    output: Data/input/Proteomes/UP000317680.fasta
+    jobid: 34
+    reason: Missing output files: Data/input/Proteomes/UP000317680.fasta; Input files updated by another job: Data/input/Proteomes/UP000317680.fasta.gz
+    wildcards: UPID=UP000317680
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000556275.fasta.gz
+    output: Data/input/Proteomes/UP000556275.fasta
+    jobid: 48
+    reason: Missing output files: Data/input/Proteomes/UP000556275.fasta; Input files updated by another job: Data/input/Proteomes/UP000556275.fasta.gz
+    wildcards: UPID=UP000556275
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 6.
+54 of 72 steps (75%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 20.
+55 of 72 steps (76%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000826833.fasta.gz
+    output: Data/input/Proteomes/UP000826833.fasta
+    jobid: 68
+    reason: Missing output files: Data/input/Proteomes/UP000826833.fasta; Input files updated by another job: Data/input/Proteomes/UP000826833.fasta.gz
+    wildcards: UPID=UP000826833
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000775429.fasta.gz
+    output: Data/input/Proteomes/UP000775429.fasta
+    jobid: 62
+    reason: Missing output files: Data/input/Proteomes/UP000775429.fasta; Input files updated by another job: Data/input/Proteomes/UP000775429.fasta.gz
+    wildcards: UPID=UP000775429
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 34.
+56 of 72 steps (78%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 48.
+57 of 72 steps (79%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000266374.fasta.gz
+    output: Data/input/Proteomes/UP000266374.fasta
+    jobid: 13
+    reason: Missing output files: Data/input/Proteomes/UP000266374.fasta; Input files updated by another job: Data/input/Proteomes/UP000266374.fasta.gz
+    wildcards: UPID=UP000266374
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000320621.fasta.gz
+    output: Data/input/Proteomes/UP000320621.fasta
+    jobid: 41
+    reason: Missing output files: Data/input/Proteomes/UP000320621.fasta; Input files updated by another job: Data/input/Proteomes/UP000320621.fasta.gz
+    wildcards: UPID=UP000320621
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 68.
+58 of 72 steps (81%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 62.
+59 of 72 steps (82%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000315741.fasta.gz
+    output: Data/input/Proteomes/UP000315741.fasta
+    jobid: 27
+    reason: Missing output files: Data/input/Proteomes/UP000315741.fasta; Input files updated by another job: Data/input/Proteomes/UP000315741.fasta.gz
+    wildcards: UPID=UP000315741
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000700897.fasta.gz
+    output: Data/input/Proteomes/UP000700897.fasta
+    jobid: 55
+    reason: Missing output files: Data/input/Proteomes/UP000700897.fasta; Input files updated by another job: Data/input/Proteomes/UP000700897.fasta.gz
+    wildcards: UPID=UP000700897
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 13.
+60 of 72 steps (83%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 41.
+61 of 72 steps (85%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000771954.fasta.gz
+    output: Data/input/Proteomes/UP000771954.fasta
+    jobid: 61
+    reason: Missing output files: Data/input/Proteomes/UP000771954.fasta; Input files updated by another job: Data/input/Proteomes/UP000771954.fasta.gz
+    wildcards: UPID=UP000771954
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000538462.fasta.gz
+    output: Data/input/Proteomes/UP000538462.fasta
+    jobid: 47
+    reason: Missing output files: Data/input/Proteomes/UP000538462.fasta; Input files updated by another job: Data/input/Proteomes/UP000538462.fasta.gz
+    wildcards: UPID=UP000538462
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 27.
+62 of 72 steps (86%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 55.
+63 of 72 steps (88%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000266048.fasta.gz
+    output: Data/input/Proteomes/UP000266048.fasta
+    jobid: 12
+    reason: Missing output files: Data/input/Proteomes/UP000266048.fasta; Input files updated by another job: Data/input/Proteomes/UP000266048.fasta.gz
+    wildcards: UPID=UP000266048
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000315475.fasta.gz
+    output: Data/input/Proteomes/UP000315475.fasta
+    jobid: 26
+    reason: Missing output files: Data/input/Proteomes/UP000315475.fasta; Input files updated by another job: Data/input/Proteomes/UP000315475.fasta.gz
+    wildcards: UPID=UP000315475
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 61.
+64 of 72 steps (89%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 47.
+65 of 72 steps (90%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000320670.fasta.gz
+    output: Data/input/Proteomes/UP000320670.fasta
+    jobid: 42
+    reason: Missing output files: Data/input/Proteomes/UP000320670.fasta; Input files updated by another job: Data/input/Proteomes/UP000320670.fasta.gz
+    wildcards: UPID=UP000320670
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:35:50 2023]
+Finished job 12.
+66 of 72 steps (92%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 26.
+67 of 72 steps (93%) done
+[Wed Oct 25 12:35:50 2023]
+Finished job 42.
+68 of 72 steps (94%) done
+Select jobs to execute...
+
+[Wed Oct 25 12:35:50 2023]
+rule orthofinder:
+    input: Data/input/Proteomes/UP000321408.fasta, Data/input/Proteomes/UP000723406.fasta, Data/input/Proteomes/UP000070043.fasta, Data/input/Proteomes/UP000070149.fasta, Data/input/Proteomes/UP000070599.fasta, Data/input/Proteomes/UP000185561.fasta, Data/input/Proteomes/UP000186239.fasta, Data/input/Proteomes/UP000228988.fasta, Data/input/Proteomes/UP000245584.fasta, Data/input/Proteomes/UP000265899.fasta, Data/input/Proteomes/UP000266048.fasta, Data/input/Proteomes/UP000266374.fasta, Data/input/Proteomes/UP000274362.fasta, Data/input/Proteomes/UP000279561.fasta, Data/input/Proteomes/UP000319007.fasta, Data/input/Proteomes/UP000319077.fasta, Data/input/Proteomes/UP000320864.fasta, Data/input/Proteomes/UP000324665.fasta, Data/input/Proteomes/UP000619436.fasta, Data/input/Proteomes/UP000645858.fasta, Data/input/Proteomes/UP000706067.fasta, Data/input/Proteomes/UP000186063.fasta, Data/input/Proteomes/UP000186209.fasta, Data/input/Proteomes/UP000315391.fasta, Data/input/Proteomes/UP000315475.fasta, Data/input/Proteomes/UP000315741.fasta, Data/input/Proteomes/UP000315921.fasta, Data/input/Proteomes/UP000317027.fasta, Data/input/Proteomes/UP000317179.fasta, Data/input/Proteomes/UP000317346.fasta, Data/input/Proteomes/UP000317403.fasta, Data/input/Proteomes/UP000317466.fasta, Data/input/Proteomes/UP000317680.fasta, Data/input/Proteomes/UP000318115.fasta, Data/input/Proteomes/UP000318839.fasta, Data/input/Proteomes/UP000318994.fasta, Data/input/Proteomes/UP000319869.fasta, Data/input/Proteomes/UP000319889.fasta, Data/input/Proteomes/UP000320434.fasta, Data/input/Proteomes/UP000320621.fasta, Data/input/Proteomes/UP000320670.fasta, Data/input/Proteomes/UP000320844.fasta, Data/input/Proteomes/UP000322103.fasta, Data/input/Proteomes/UP000322882.fasta, Data/input/Proteomes/UP000323018.fasta, Data/input/Proteomes/UP000538462.fasta, Data/input/Proteomes/UP000556275.fasta, Data/input/Proteomes/UP000610226.fasta, Data/input/Proteomes/UP000621573.fasta, Data/input/Proteomes/UP000625964.fasta, Data/input/Proteomes/UP000634061.fasta, Data/input/Proteomes/UP000678182.fasta, Data/input/Proteomes/UP000696993.fasta, Data/input/Proteomes/UP000700897.fasta, Data/input/Proteomes/UP000721749.fasta, Data/input/Proteomes/UP000729503.fasta, Data/input/Proteomes/UP000738095.fasta, Data/input/Proteomes/UP000751408.fasta, Data/input/Proteomes/UP000760201.fasta, Data/input/Proteomes/UP000771954.fasta, Data/input/Proteomes/UP000775429.fasta, Data/input/Proteomes/UP000777023.fasta, Data/input/Proteomes/UP000825566.fasta, Data/input/Proteomes/UP000825906.fasta, Data/input/Proteomes/UP000826397.fasta, Data/input/Proteomes/UP000826686.fasta, Data/input/Proteomes/UP000826833.fasta
+    output: Data/OFResults/Orthogroups.tsv, Data/OFResults/Orthogroups_UnassignedGenes.tsv
+    jobid: 71
+    reason: Missing output files: Data/OFResults/Orthogroups.tsv; Input files updated by another job: Data/input/Proteomes/UP000279561.fasta, Data/input/Proteomes/UP000317680.fasta, Data/input/Proteomes/UP000317179.fasta, Data/input/Proteomes/UP000322882.fasta, Data/input/Proteomes/UP000320670.fasta, Data/input/Proteomes/UP000729503.fasta, Data/input/Proteomes/UP000760201.fasta, Data/input/Proteomes/UP000320844.fasta, Data/input/Proteomes/UP000751408.fasta, Data/input/Proteomes/UP000315741.fasta, Data/input/Proteomes/UP000320864.fasta, Data/input/Proteomes/UP000266048.fasta, Data/input/Proteomes/UP000317466.fasta, Data/input/Proteomes/UP000621573.fasta, Data/input/Proteomes/UP000315921.fasta, Data/input/Proteomes/UP000738095.fasta, Data/input/Proteomes/UP000317027.fasta, Data/input/Proteomes/UP000228988.fasta, Data/input/Proteomes/UP000322103.fasta, Data/input/Proteomes/UP000625964.fasta, Data/input/Proteomes/UP000323018.fasta, Data/input/Proteomes/UP000266374.fasta, Data/input/Proteomes/UP000645858.fasta, Data/input/Proteomes/UP000696993.fasta, Data/input/Proteomes/UP000318994.fasta, Data/input/Proteomes/UP000700897.fasta, Data/input/Proteomes/UP000556275.fasta, Data/input/Proteomes/UP000185561.fasta, Data/input/Proteomes/UP000777023.fasta, Data/input/Proteomes/UP000619436.fasta, Data/input/Proteomes/UP000610226.fasta, Data/input/Proteomes/UP000320434.fasta, Data/input/Proteomes/UP000070043.fasta, Data/input/Proteomes/UP000319869.fasta, Data/input/Proteomes/UP000826686.fasta, Data/input/Proteomes/UP000826833.fasta, Data/input/Proteomes/UP000678182.fasta, Data/input/Proteomes/UP000775429.fasta, Data/input/Proteomes/UP000318115.fasta, Data/input/Proteomes/UP000706067.fasta, Data/input/Proteomes/UP000315391.fasta, Data/input/Proteomes/UP000319889.fasta, Data/input/Proteomes/UP000317346.fasta, Data/input/Proteomes/UP000826397.fasta, Data/input/Proteomes/UP000186239.fasta, Data/input/Proteomes/UP000721749.fasta, Data/input/Proteomes/UP000317403.fasta, Data/input/Proteomes/UP000318839.fasta, Data/input/Proteomes/UP000538462.fasta, Data/input/Proteomes/UP000825906.fasta, Data/input/Proteomes/UP000315475.fasta, Data/input/Proteomes/UP000324665.fasta, Data/input/Proteomes/UP000320621.fasta, Data/input/Proteomes/UP000070599.fasta, Data/input/Proteomes/UP000274362.fasta, Data/input/Proteomes/UP000319077.fasta, Data/input/Proteomes/UP000245584.fasta, Data/input/Proteomes/UP000319007.fasta, Data/input/Proteomes/UP000771954.fasta, Data/input/Proteomes/UP000825566.fasta, Data/input/Proteomes/UP000723406.fasta, Data/input/Proteomes/UP000634061.fasta, Data/input/Proteomes/UP000186209.fasta, Data/input/Proteomes/UP000321408.fasta, Data/input/Proteomes/UP000265899.fasta, Data/input/Proteomes/UP000070149.fasta, Data/input/Proteomes/UP000186063.fasta
+    threads: 4
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+Terminating processes on user request, this might take some time.
+Cancelling snakemake on user request.

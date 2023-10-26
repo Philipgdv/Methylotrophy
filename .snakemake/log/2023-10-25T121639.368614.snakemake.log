@@ -1,0 +1,90 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count    min threads    max threads
+--------------------  -------  -------------  -------------
+GatherFASTAs                1              1              1
+OFOG_Representatives        1              1              1
+Setup                       1              1              1
+all                         1              1              1
+gunzip_UP                  68              1              1
+orthofinder                 1              4              4
+total                      73              1              4
+
+Select jobs to execute...
+
+[Wed Oct 25 12:16:40 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000723406.fasta.gz
+    output: Data/input/Proteomes/UP000723406.fasta
+    jobid: 57
+    reason: Missing output files: Data/input/Proteomes/UP000723406.fasta
+    wildcards: UPID=UP000723406
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:16:40 2023]
+rule Setup:
+    output: Data/output/AssemblyQC.png, Data/input/UPID_OOI.txt, Data/input/TaxonID.txt
+    jobid: 71
+    reason: Missing output files: Data/output/AssemblyQC.png
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:16:40 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000186063.fasta.gz
+    output: Data/input/Proteomes/UP000186063.fasta
+    jobid: 35
+    reason: Missing output files: Data/input/Proteomes/UP000186063.fasta
+    wildcards: UPID=UP000186063
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:16:40 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000318115.fasta.gz
+    output: Data/input/Proteomes/UP000318115.fasta
+    jobid: 21
+    reason: Missing output files: Data/input/Proteomes/UP000318115.fasta
+    wildcards: UPID=UP000318115
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:16:40 2023]
+Finished job 57.
+1 of 73 steps (1%) done
+Select jobs to execute...
+[Wed Oct 25 12:16:40 2023]
+Error in rule Setup:
+    jobid: 71
+    output: Data/output/AssemblyQC.png, Data/input/UPID_OOI.txt, Data/input/TaxonID.txt
+
+RuleException:
+WorkflowError in line 33 of /Users/phivri/Documents/Github/Biosustain/Methylotrophy/Snakefile:
+Failed to open source file /Users/phivri/Documents/Github/Biosustain/Methylotrophy/python Scripts/Setup.py 1935183
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/phivri/Documents/Github/Biosustain/Methylotrophy/python Scripts/Setup.py 1935183'
+  File "/Users/phivri/Documents/Github/Biosustain/Methylotrophy/Snakefile", line 33, in __rule_Setup
+  File "/Users/phivri/Applications/mambaforge/envs/snakemake/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+
+[Wed Oct 25 12:16:40 2023]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000245584.fasta.gz
+    output: Data/input/Proteomes/UP000245584.fasta
+    jobid: 11
+    reason: Missing output files: Data/input/Proteomes/UP000245584.fasta
+    wildcards: UPID=UP000245584
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:16:40 2023]
+Finished job 35.
+2 of 73 steps (3%) done
+[Wed Oct 25 12:16:40 2023]
+Finished job 21.
+3 of 73 steps (4%) done
+[Wed Oct 25 12:16:40 2023]
+Finished job 11.
+4 of 73 steps (5%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-10-25T121639.368614.snakemake.log

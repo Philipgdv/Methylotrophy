@@ -1,0 +1,50 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count    min threads    max threads
+--------------------  -------  -------------  -------------
+GatherFASTAs                1              1              1
+OFOG_Representatives        1              1              1
+Setup                       1              1              1
+all                         1              1              1
+download_UP                 1              1              1
+gunzip_UP                  68              1              1
+orthofinder                 1              4              4
+total                      74              1              4
+
+Select jobs to execute...
+
+[Wed Oct 25 12:15:28 2023]
+rule download_UP:
+    output: Data/input/Proteomes/UP000321408.fasta.gz, Data/input/Proteomes/UP000070043.fasta.gz, Data/input/Proteomes/UP000070149.fasta.gz, Data/input/Proteomes/UP000070599.fasta.gz, Data/input/Proteomes/UP000185561.fasta.gz, Data/input/Proteomes/UP000186209.fasta.gz, Data/input/Proteomes/UP000186239.fasta.gz, Data/input/Proteomes/UP000186851.fasta.gz, Data/input/Proteomes/UP000228988.fasta.gz, Data/input/Proteomes/UP000245584.fasta.gz, Data/input/Proteomes/UP000265899.fasta.gz, Data/input/Proteomes/UP000266048.fasta.gz, Data/input/Proteomes/UP000266374.fasta.gz, Data/input/Proteomes/UP000274362.fasta.gz, Data/input/Proteomes/UP000279561.fasta.gz, Data/input/Proteomes/UP000315741.fasta.gz, Data/input/Proteomes/UP000317027.fasta.gz, Data/input/Proteomes/UP000317179.fasta.gz, Data/input/Proteomes/UP000317466.fasta.gz, Data/input/Proteomes/UP000318115.fasta.gz, Data/input/Proteomes/UP000318839.fasta.gz, Data/input/Proteomes/UP000319007.fasta.gz, Data/input/Proteomes/UP000319077.fasta.gz, Data/input/Proteomes/UP000319869.fasta.gz, Data/input/Proteomes/UP000320434.fasta.gz, Data/input/Proteomes/UP000320621.fasta.gz, Data/input/Proteomes/UP000320844.fasta.gz, Data/input/Proteomes/UP000320864.fasta.gz, Data/input/Proteomes/UP000324665.fasta.gz, Data/input/Proteomes/UP000556275.fasta.gz, Data/input/Proteomes/UP000619436.fasta.gz, Data/input/Proteomes/UP000634061.fasta.gz, Data/input/Proteomes/UP000645858.fasta.gz, Data/input/Proteomes/UP000186063.fasta.gz, Data/input/Proteomes/UP000315391.fasta.gz, Data/input/Proteomes/UP000315475.fasta.gz, Data/input/Proteomes/UP000315921.fasta.gz, Data/input/Proteomes/UP000317346.fasta.gz, Data/input/Proteomes/UP000317403.fasta.gz, Data/input/Proteomes/UP000317680.fasta.gz, Data/input/Proteomes/UP000318994.fasta.gz, Data/input/Proteomes/UP000319889.fasta.gz, Data/input/Proteomes/UP000320670.fasta.gz, Data/input/Proteomes/UP000322103.fasta.gz, Data/input/Proteomes/UP000322882.fasta.gz, Data/input/Proteomes/UP000323018.fasta.gz, Data/input/Proteomes/UP000538462.fasta.gz, Data/input/Proteomes/UP000610226.fasta.gz, Data/input/Proteomes/UP000621573.fasta.gz, Data/input/Proteomes/UP000625964.fasta.gz, Data/input/Proteomes/UP000678182.fasta.gz, Data/input/Proteomes/UP000696993.fasta.gz, Data/input/Proteomes/UP000700897.fasta.gz, Data/input/Proteomes/UP000706067.fasta.gz, Data/input/Proteomes/UP000721749.fasta.gz, Data/input/Proteomes/UP000723406.fasta.gz, Data/input/Proteomes/UP000729503.fasta.gz, Data/input/Proteomes/UP000738095.fasta.gz, Data/input/Proteomes/UP000751408.fasta.gz, Data/input/Proteomes/UP000760201.fasta.gz, Data/input/Proteomes/UP000771954.fasta.gz, Data/input/Proteomes/UP000775429.fasta.gz, Data/input/Proteomes/UP000777023.fasta.gz, Data/input/Proteomes/UP000825566.fasta.gz, Data/input/Proteomes/UP000825906.fasta.gz, Data/input/Proteomes/UP000826397.fasta.gz, Data/input/Proteomes/UP000826686.fasta.gz, Data/input/Proteomes/UP000826833.fasta.gz
+    jobid: 2
+    reason: Missing output files: Data/input/Proteomes/UP000317466.fasta.gz, Data/input/Proteomes/UP000625964.fasta.gz, Data/input/Proteomes/UP000826397.fasta.gz, Data/input/Proteomes/UP000319869.fasta.gz, Data/input/Proteomes/UP000322103.fasta.gz, Data/input/Proteomes/UP000317346.fasta.gz, Data/input/Proteomes/UP000696993.fasta.gz, Data/input/Proteomes/UP000610226.fasta.gz, Data/input/Proteomes/UP000777023.fasta.gz, Data/input/Proteomes/UP000825566.fasta.gz, Data/input/Proteomes/UP000266048.fasta.gz, Data/input/Proteomes/UP000186239.fasta.gz, Data/input/Proteomes/UP000245584.fasta.gz, Data/input/Proteomes/UP000751408.fasta.gz, Data/input/Proteomes/UP000274362.fasta.gz, Data/input/Proteomes/UP000738095.fasta.gz, Data/input/Proteomes/UP000320621.fasta.gz, Data/input/Proteomes/UP000317027.fasta.gz, Data/input/Proteomes/UP000556275.fasta.gz, Data/input/Proteomes/UP000826833.fasta.gz, Data/input/Proteomes/UP000315391.fasta.gz, Data/input/Proteomes/UP000621573.fasta.gz, Data/input/Proteomes/UP000265899.fasta.gz, Data/input/Proteomes/UP000619436.fasta.gz, Data/input/Proteomes/UP000186063.fasta.gz, Data/input/Proteomes/UP000070599.fasta.gz, Data/input/Proteomes/UP000317179.fasta.gz, Data/input/Proteomes/UP000320844.fasta.gz, Data/input/Proteomes/UP000634061.fasta.gz, Data/input/Proteomes/UP000319889.fasta.gz, Data/input/Proteomes/UP000317403.fasta.gz, Data/input/Proteomes/UP000279561.fasta.gz, Data/input/Proteomes/UP000729503.fasta.gz, Data/input/Proteomes/UP000185561.fasta.gz, Data/input/Proteomes/UP000228988.fasta.gz, Data/input/Proteomes/UP000320864.fasta.gz, Data/input/Proteomes/UP000186209.fasta.gz, Data/input/Proteomes/UP000324665.fasta.gz, Data/input/Proteomes/UP000706067.fasta.gz, Data/input/Proteomes/UP000070043.fasta.gz, Data/input/Proteomes/UP000826686.fasta.gz, Data/input/Proteomes/UP000700897.fasta.gz, Data/input/Proteomes/UP000320434.fasta.gz, Data/input/Proteomes/UP000723406.fasta.gz, Data/input/Proteomes/UP000318115.fasta.gz, Data/input/Proteomes/UP000645858.fasta.gz, Data/input/Proteomes/UP000315921.fasta.gz, Data/input/Proteomes/UP000318994.fasta.gz, Data/input/Proteomes/UP000322882.fasta.gz, Data/input/Proteomes/UP000760201.fasta.gz, Data/input/Proteomes/UP000678182.fasta.gz, Data/input/Proteomes/UP000721749.fasta.gz, Data/input/Proteomes/UP000771954.fasta.gz, Data/input/Proteomes/UP000318839.fasta.gz, Data/input/Proteomes/UP000321408.fasta.gz, Data/input/Proteomes/UP000319007.fasta.gz, Data/input/Proteomes/UP000775429.fasta.gz, Data/input/Proteomes/UP000825906.fasta.gz, Data/input/Proteomes/UP000319077.fasta.gz, Data/input/Proteomes/UP000315741.fasta.gz, Data/input/Proteomes/UP000186851.fasta.gz, Data/input/Proteomes/UP000266374.fasta.gz, Data/input/Proteomes/UP000538462.fasta.gz, Data/input/Proteomes/UP000323018.fasta.gz, Data/input/Proteomes/UP000315475.fasta.gz, Data/input/Proteomes/UP000320670.fasta.gz, Data/input/Proteomes/UP000070149.fasta.gz, Data/input/Proteomes/UP000317680.fasta.gz
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Wed Oct 25 12:15:28 2023]
+rule Setup:
+    output: Data/output/AssemblyQC.png, Data/input/UPID_OOI.txt, Data/input/TaxonID.txt
+    jobid: 71
+    reason: Missing output files: Data/output/AssemblyQC.png
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Wed Oct 25 12:15:28 2023]
+Error in rule Setup:
+    jobid: 71
+    output: Data/output/AssemblyQC.png, Data/input/UPID_OOI.txt, Data/input/TaxonID.txt
+
+RuleException:
+WorkflowError in line 33 of /Users/phivri/Documents/Github/Biosustain/Methylotrophy/Snakefile:
+Failed to open source file /Users/phivri/Documents/Github/Biosustain/Methylotrophy/python Scripts/Setup.py 1935183
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/phivri/Documents/Github/Biosustain/Methylotrophy/python Scripts/Setup.py 1935183'
+  File "/Users/phivri/Documents/Github/Biosustain/Methylotrophy/Snakefile", line 33, in __rule_Setup
+  File "/Users/phivri/Applications/mambaforge/envs/snakemake/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+[Wed Oct 25 12:15:55 2023]
+Finished job 2.
+1 of 74 steps (1%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-10-25T121515.990014.snakemake.log

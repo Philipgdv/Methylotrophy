@@ -1,0 +1,10 @@
+FileNotFoundError in line 10 of /Users/phivri/Documents/Github/Biosustain/Methylotrophy/Snakefile:
+[Errno 2] No such file or directory: 'Data/input/SpeciesIndexDF.tsv'
+  File "/Users/phivri/Documents/Github/Biosustain/Methylotrophy/Snakefile", line 10, in <module>
+  File "/Users/phivri/Applications/mambaforge/envs/snakemake/lib/python3.9/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+  File "/Users/phivri/Applications/mambaforge/envs/snakemake/lib/python3.9/site-packages/pandas/util/_decorators.py", line 331, in wrapper
+  File "/Users/phivri/Applications/mambaforge/envs/snakemake/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 950, in read_csv
+  File "/Users/phivri/Applications/mambaforge/envs/snakemake/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 605, in _read
+  File "/Users/phivri/Applications/mambaforge/envs/snakemake/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1442, in __init__
+  File "/Users/phivri/Applications/mambaforge/envs/snakemake/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1735, in _make_engine
+  File "/Users/phivri/Applications/mambaforge/envs/snakemake/lib/python3.9/site-packages/pandas/io/common.py", line 856, in get_handle
