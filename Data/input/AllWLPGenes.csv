@@ -1,23 +1,21 @@
-﻿Category;Group;KeggRID;Substrate;Product;EC;GeneName;COG;KEGG;Reference gene;Reference;Description;;;;;;;;;;;;;;;;
-Metabolic;MFR;R03015;CO2;formylMFR;1.2.7.12;fmdC;COG2218;K00202;;;;;;;;;;;;;;;;;;;
-Metabolic;THMPT;R03390;formylMFR;formylTHMPT;2.3.1.101;ftr;COG2037;K00672;;;;;;;;;;;;;;;;;;COG1152;K00192  
-Metabolic;THMPT;R03464;formylTHMPT;methenylTHMPT;3.5.4.27;mch;COG3252;K01499;;;;;;;;;;;;;;;;;;COG1880;K00195  
-Metabolic;THMPT;R04455;methenylTHMPT;methyleneTHMPT;1.5.98.1;mtd;COG1927;K00319;;;;;;;;;;;;;;;;;;COG1142;K00196  
-Metabolic;THMPT;R04464;methyleneTHMPT;methylTHMPT;1.5.98.2;mer;COG2141;K00320;;;;;;;;;;;;;;;;;;COG1151;K00198  
-Metabolic;Fdh;R12754;CO2;formate;1.17.98.4;fdhA;COG3383;K22015;;;;;;;;;;;;;;;;;;COG1614;K00193  
-Metabolic;THF;R00943;formate;formylTHF;6.3.4.3;fhs;COG2759;K00288;;;;;;;;;;;;;;;;;;COG1456;K00197
-Metabolic;THF;R01655;formylTHF;methenylTHF;3.5.4.9;folD;COG0190;K01491;;;;;;;;;;;;;;;;;;COG1152;K14138  
-Metabolic;THF;R01220;methenylTHF;methyleneTHF;1.5.1.5;mtdA;COG0373;K00300  ;;;;;;;;;;;;;;;;;;COG1614;
-Metabolic;THF;R07168;methyleneTHF;methylTHF;1.5.1.54;metF;COG0685;K00297;;;;;;;;;;;;;;;;;;;
-Metabolic;Actt;R00230;acetyl-CoA;acetyl-P;2.3.1.8;pta;COG0280;K00625;;;;;;;;;;;;;;;;;;;
-Metabolic;Actt;R00315;acetyl-P;acetate;2.7.2.1;ackA;COG0282;K00925;;;;;;;;;;;;;;;;;;COG4147;K14393
-Metabolic;Actt;R00235;acetyl-CoA;acetate;6.2.1.1;acs;COG0365;K01895;;;;;;;;;;;;;;;;;;arCOG01317 ;
-Metabolic;Mtr;R04347;methylTHMPT;methylCoM;2.1.1.86;mtrH;COG1962;K00584  ;;;;;;;;;;;;;;;;;;COG1584;K07034
-Metabolic;Mtr;R10385;methylTHMPT;methyl-Co(III);2.1.1.245;mtrH;COG1962;K00584  ;;;;;;;;;;;;;;;;;;arCOG03176;
-Metabolic;Mtr;R02289;methylTHF;methyl-Co(III);2.1.1.258;AcsE;COG1410;K00548;;10.1073/pnas.1716667115;;;;;;;;;;;;;;;;;
-Metabolic;Mtr;;methylTHF;methyl-Co(III);;CdhB;COG1880;K00195;;10.1073/pnas.1716667115;;;;;;;;;;;;;;;;;
-Metabolic;Mtr;;;;;CdhD/AcsD;COG2069;K00194  ;;10.1073/pnas.1716667115;;;;;;;;;;;;;;;;;
-Metabolic;Mtr;;;;;CdhE/AcsC;COG1456;K00197;;10.1073/pnas.1716667115;;;;;;;;;;;;;;;;;
-Metabolic;Codh;R07157;CO2;CO;1.2.7.4;CooS/AcsA;COG1151;K00198  ;;10.1073/pnas.1716667115;;;;;;;;;;;;;;;;COG0365;
-Metabolic;Codh;R07157;CO2;CO;1.2.7.4;CdhA;COG1152;K00192  ;;10.1073/pnas.1716667115;;;;;;;;;;;;;;;;;
-Metabolic;Acs;R08433;methyl-Co(III) + CO ;Acetyl-CoA;2.3.1.169;Cdhc;COG1614;K14138;;10.1073/pnas.1716667115;;;;;;;;;;;;;;;;;
+﻿Category;Group;KeggRID;Substrate;Product;EC;GeneName;COG;KEGG;Reference gene;Reference;Description
+Metabolic;MFR;R03015;CO2;formylMFR;1.2.7.12;fmdC;COG2218;K00202;;;
+Metabolic;THMPT;R03390;formylMFR;formylTHMPT;2.3.1.101;ftr;COG2037;K00672;;;
+Metabolic;THMPT;R03464;formylTHMPT;methenylTHMPT;3.5.4.27;mch;COG3252;K01499;;;
+Metabolic;THMPT;R04455;methenylTHMPT;methyleneTHMPT;1.5.98.1;mtd;COG1927;K00319;;;
+Metabolic;THMPT;R04464;methyleneTHMPT;methylTHMPT;1.5.98.2;mer;COG2141;K00320;;;
+Metabolic;THMPT;R10385;methylTHMPT;methyl-Co(III);2.1.1.245;mtrH;COG1962;K00584  ;;;
+Metabolic;THF;R12754;CO2;formate;1.17.98.4;fdhA;COG3383;K22015;;;
+Metabolic;THF;R00943;formate;formylTHF;6.3.4.3;fhs;COG2759;K00288;;;
+Metabolic;THF;R01655;formylTHF;methenylTHF;3.5.4.9;folD;COG0190;K01491;;;
+Metabolic;THF;R01220;methenylTHF;methyleneTHF;1.5.1.5;mtdA;COG0373;K00300  ;;;
+Metabolic;THF;R07168;methyleneTHF;methylTHF;1.5.1.54;metF;COG0685;K00297;;;
+Metabolic;THF;R02289;methylTHF;methyl-Co(III);2.1.1.258;AcsE;COG1410;K00548;;10.1073/pnas.1716667115;
+Metabolic;Codh;;methylTHF;methyl-Co(III);;CdhB;COG1880;K00195;;10.1073/pnas.1716667115;
+Metabolic;Codh;;;;;CdhD/AcsD;COG2069;K00194  ;;10.1073/pnas.1716667115;
+Metabolic;Codh;;;;;CdhE/AcsC;COG1456;K00197;;10.1073/pnas.1716667115;
+Metabolic;Codh;R07157;CO2;CO;1.2.7.4;CooS/AcsA;COG1151;K00198  ;;10.1073/pnas.1716667115;
+Metabolic;Codh;R07157;CO2;CO;1.2.7.4;CdhA;COG1152;K00192  ;;10.1073/pnas.1716667115;
+Metabolic;Codh;R08433;methyl-Co(III) + CO ;Acetyl-CoA;2.3.1.169;Cdhc;COG1614;K14138;;10.1073/pnas.1716667115;
+Metabolic;Actt;R00230;acetyl-CoA;acetyl-P;2.3.1.8;pta;COG0280;K00625;;;
+Metabolic;Actt;R00315;acetyl-P;acetate;2.7.2.1;ackA;COG0282;K00925;;;
