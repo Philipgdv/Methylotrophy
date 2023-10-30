@@ -1,3 +1,4 @@
 *.fasta
 *.fa
 *.pkl
+Data/input/1_members.tsv
