@@ -20,8 +20,9 @@ The repository is filled with demo data, allowing to test the notebooks. The not
 	1_COG_Counts.ipynb
 	2_COG_CountRefSpecies.ipynb
 	3_COG_PresenceTaxa.ipynb
-	HierarchicalClustering.ipynb
-	JaccardCorrelation-TaxFilter.ipynb
+	4_JaccardCorrelation-TaxFilter.ipynb
+	5_HierarchicalClustering.ipynb
+	6_LGT_MSA&Tree.ipynb
 
 If you wish to run the full analysis, change directory to the Methylotrophy folder and initiate it by running in the terminal (Where 1935183 is the taxon number of Asgardarchaea):
 	python Scripts/Setup.py 1935183
