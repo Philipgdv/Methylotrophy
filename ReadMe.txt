@@ -3,6 +3,13 @@ This repository contains the data, scripts, and notebooks used in the paper,
 Methylotrophic Acetyl-CoA Formation as the Pathway at the Origin of Life,
 By Philip J. Gorter de Vries, Alex Toftgaard Nielsen, Alfred M. Spormann
 
+The analysis consists of five steps:
+	a) Setup: [Scripts/Setup.py]
+	b) Snakemake pipeline: [snakefile]
+	c) EggNOG mapping: [online: http://eggnog-mapper.embl.de/]
+	d) COG Counts: [Scripts/COG_Counts.py]
+	e) Jupyter Notebook analyses
+
 1 - System Requirements:
 The analysis was run locally on a computer with a 1,4 GHz Quad-Core Intel Core i5 running MacOS Sonoma 14.4.1
 The software dependencies are:
