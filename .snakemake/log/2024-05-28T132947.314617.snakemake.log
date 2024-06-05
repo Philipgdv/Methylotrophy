@@ -1,0 +1,26 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count    min threads    max threads
+--------------------  -------  -------------  -------------
+OFOG_Representatives        1              1              1
+Setup                       1              1              1
+all                         1              1              1
+orthofinder                 1              4              4
+total                       4              1              4
+
+Select jobs to execute...
+
+[Tue May 28 13:29:58 2024]
+rule orthofinder:
+    input: Data/input/Proteomes/UP000321408.fasta, Data/input/Proteomes/UP000324665.fasta
+    output: Data/OFResults/Orthogroups.tsv, Data/OFResults/Orthogroups_UnassignedGenes.tsv
+    jobid: 6
+    reason: Updated input files: Data/input/Proteomes/UP000324665.fasta, Data/input/Proteomes/UP000321408.fasta
+    threads: 4
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+Terminating processes on user request, this might take some time.
+Cancelling snakemake on user request.

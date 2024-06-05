@@ -11,14 +11,24 @@ import sys
 
 TaxID = sys.argv[1]
 
-SpIndex = pd.read_csv(f"https://rest.uniprot.org/proteomes/search?query=(taxonomy_id:{TaxID})&fields=upid%2Corganism%2Corganism_id%2Cprotein_count%2Cgenome_assembly&&format=tsv&size=500", sep="\t", index_col = 'Proteome Id')
+if TaxID == "Demo":
+    print("You are running on a demo dataset comprised only of two genome assemblies: UP000324665 & UP000321408")
+    SpIndex = pd.read_csv("https://rest.uniprot.org/proteomes/search?query=(taxonomy_id:1935183)&fields=upid%2Corganism%2Corganism_id%2Cprotein_count%2Cgenome_assembly&&format=tsv&size=500", sep="\t", index_col = 'Proteome Id')
+    mask =["UP000324665","UP000321408"]
+    SpIndex = SpIndex.loc[mask]
+
+else:
+    SpIndex = pd.read_csv(f"https://rest.uniprot.org/proteomes/search?query=(taxonomy_id:{TaxID})&fields=upid%2Corganism%2Corganism_id%2Cprotein_count%2Cgenome_assembly&&format=tsv&size=500", sep="\t", index_col = 'Proteome Id')
+    if SpIndex.empty: print("Error, wrong taxID, there are no species listed. Please enter a valid NCBI taxID")
+    else: print(f"Assessing quality of {len(SpIndex)} genome assemblies belonging to TaxID {TaxID}")
+    
 
 SpIndex.rename(columns={'Genome assembly ID':'Assembly'}, inplace=True)
 SpIndex["AssemblyFullName"] = "NaN"
 SpIndex["SeqLen"] = "NaN"
 SpIndex["Contigs"] = "NaN"
-i = 0
 
+i = 0
 for PID in SpIndex.index:
     i = i + 1
     try:
@@ -40,21 +50,21 @@ for PID in SpIndex.index:
     except:
         pass
 
-SpIndex[["Contigs","SeqLen"]] = SpIndex[["Contigs","SeqLen"]].replace("NaN",1).astype(int)
+    SpIndex[["Contigs","SeqLen"]] = SpIndex[["Contigs","SeqLen"]].replace("NaN",1).astype(int)
 
-plt.figure(figsize=(10, 5))
-plt.title("Assembly Quality Assesment")
-plt.scatter(SpIndex["Contigs"],SpIndex["SeqLen"]/1000000)
-plt.hlines(1,0,1000, linewidth = 0.5)
-plt.vlines(300,0,10, linewidth = 0.5)
-plt.xlabel(r'Contig count')
-plt.ylabel(r'Total sequence length ($10^6$ bp)')
-plt.axis([0, 550, 0, 5.5])
+    plt.figure(figsize=(10, 5))
+    plt.title("Assembly Quality Assesment")
+    plt.scatter(SpIndex["Contigs"],SpIndex["SeqLen"]/1000000)
+    plt.hlines(1,0,1000, linewidth = 0.5)
+    plt.vlines(300,0,10, linewidth = 0.5)
+    plt.xlabel(r'Contig count')
+    plt.ylabel(r'Total sequence length ($10^6$ bp)')
+    plt.axis([0, 550, 0, 5.5])
 
-plt.savefig('Data/output/AssemblyQC.png')
+    plt.savefig('Data/output/AssemblyQC.png')
 
-SpIndex_CutOff = SpIndex[SpIndex["SeqLen"] > 1000000]
-SpIndex_CutOff = SpIndex_CutOff[SpIndex_CutOff["Contigs"] < 300]
+    SpIndex_CutOff = SpIndex[SpIndex["SeqLen"] > 1000000]
+    SpIndex_CutOff = SpIndex_CutOff[SpIndex_CutOff["Contigs"] < 300]
 
-SpIndex_CutOff.to_csv("Data/input/SpeciesIndexDF.tsv", sep="\t", index = True)
-SpIndex_CutOff.reset_index()["Proteome Id"].to_csv('Data/input/UPIDs.txt', sep='\n', index=False, header=False)
+    SpIndex_CutOff.to_csv("Data/input/SpeciesIndexDF.tsv", sep="\t", index = True)
+    SpIndex_CutOff.reset_index()["Proteome Id"].to_csv("Data/input/UPIDs.txt", sep='\n', index=False, header=False)

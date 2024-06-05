@@ -1,0 +1,56 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count    min threads    max threads
+--------------------  -------  -------------  -------------
+GatherFASTAs                1              1              1
+OFOG_Representatives        1              1              1
+all                         1              1              1
+gunzip_UP                   2              1              1
+orthofinder                 1              4              4
+total                       6              1              4
+
+Select jobs to execute...
+
+[Tue May 28 14:22:13 2024]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000324665.fasta.gz
+    output: Data/input/Proteomes/UP000324665.fasta
+    jobid: 1
+    reason: Missing output files: Data/input/Proteomes/UP000324665.fasta; Updated input files: Data/input/Proteomes/UP000324665.fasta.gz
+    wildcards: UPID=UP000324665
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+
+[Tue May 28 14:22:13 2024]
+rule gunzip_UP:
+    input: Data/input/Proteomes/UP000321408.fasta.gz
+    output: Data/input/Proteomes/UP000321408.fasta
+    jobid: 3
+    reason: Missing output files: Data/input/Proteomes/UP000321408.fasta; Updated input files: Data/input/Proteomes/UP000321408.fasta.gz
+    wildcards: UPID=UP000321408
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Tue May 28 14:22:13 2024]
+Error in rule gunzip_UP:
+    jobid: 1
+    input: Data/input/Proteomes/UP000324665.fasta.gz
+    output: Data/input/Proteomes/UP000324665.fasta
+    shell:
+        gunzip Data/input/Proteomes/UP000324665.fasta.gz
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Tue May 28 14:22:13 2024]
+Error in rule gunzip_UP:
+    jobid: 3
+    input: Data/input/Proteomes/UP000321408.fasta.gz
+    output: Data/input/Proteomes/UP000321408.fasta
+    shell:
+        gunzip Data/input/Proteomes/UP000321408.fasta.gz
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-05-28T142212.051481.snakemake.log

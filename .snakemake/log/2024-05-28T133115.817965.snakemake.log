@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in rule all  in line 11 of /Users/phivri/Documents/Github/Biosustain/Methylotrophy/Snakefile:
+Missing input files for rule all:
+    affected files:
+        Data/output/AssemblyQC.png

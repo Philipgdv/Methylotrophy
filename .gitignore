@@ -3,3 +3,4 @@
 *.pkl
 Data/input/1_members.tsv
 Data/output/AllOFOG&eOGCounts.csv
+Data/input/1_members.tsv.gz

@@ -1,0 +1,52 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count    min threads    max threads
+--------------------  -------  -------------  -------------
+OFOG_Representatives        1              1              1
+all                         1              1              1
+orthofinder                 1              4              4
+total                       3              1              4
+
+Select jobs to execute...
+
+[Tue May 28 13:31:47 2024]
+rule orthofinder:
+    input: Data/input/Proteomes/UP000321408.fasta, Data/input/Proteomes/UP000324665.fasta
+    output: Data/OFResults/Orthogroups.tsv, Data/OFResults/Orthogroups_UnassignedGenes.tsv
+    jobid: 5
+    reason: Missing output files: Data/OFResults/Orthogroups.tsv
+    threads: 4
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Tue May 28 13:39:31 2024]
+Finished job 5.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Tue May 28 13:39:31 2024]
+rule OFOG_Representatives:
+    input: Data/OFResults/Orthogroups.tsv
+    output: Data/OFResults/MultipleSequenceAlignments/OFOG_Representatives.fasta
+    jobid: 6
+    reason: Input files updated by another job: Data/OFResults/Orthogroups.tsv
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Tue May 28 13:40:08 2024]
+Finished job 6.
+2 of 3 steps (67%) done
+Select jobs to execute...
+
+[Tue May 28 13:40:08 2024]
+localrule all:
+    input: Data/input/Proteomes/UP000321408.fasta, Data/input/Proteomes/UP000324665.fasta, Data/input/AllGenes.fasta, Data/OFResults/Orthogroups.tsv, Data/OFResults/MultipleSequenceAlignments/OFOG_Representatives.fasta
+    jobid: 0
+    reason: Input files updated by another job: Data/OFResults/Orthogroups.tsv, Data/OFResults/MultipleSequenceAlignments/OFOG_Representatives.fasta
+    resources: tmpdir=/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T
+
+[Tue May 28 13:40:08 2024]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: .snakemake/log/2024-05-28T133139.806836.snakemake.log
