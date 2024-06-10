@@ -71,33 +71,33 @@ The repository is filled with demo data, allowing to test the notebooks. The dem
 
 If you wish to run the full analysis and recreate the full dataframe, run the following steps:
 
-### Initiate 
+### 1 - Initiate 
 Change directory to the Methylotrophy folder & initiate it by running in the terminal (Where 1935183 is the taxon number of Asgardarchaea):
 ```
 cd /Methylotrophy
 python Scripts/Setup.py 1935183
 ```
 
-### Snakefile
+### 2 - Snakefile
 run the snakefile to run OrthoFinder
 ```
 snakemake -j 4
 ```
 
-### Mapping
+### 3 - Mapping
 the workflow will produce a FASTA file containing the sequences of one of each identified orthology group find the file at: 
 ```
 /Methylotrophy/Data/OFResults/MultipleSequenceAlignments/OFOG_Representatives.fasta 	
 ```
 Upload this file to http://eggnog-mapper.embl.de/ to link the found OrthoFinder groups to COG groups. Download the output as a csv or tsv file and move it to /Methylotrophy/Data/input/
 
-### Combining Counts
+### 4 - Combining Counts
 Run a python script to download all COGs from EggNOG at root level and link the identified OrthoFinder orthologous groups to them, creating a count matrix
 ```
 python Scripts/COG_counts.py
 ```
 
-### Analyses
+### 5 - Analyses
 Run the analyses in the notebooks, as described in the materials & methods section.
 
 # License
