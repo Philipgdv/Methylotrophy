@@ -53,7 +53,13 @@ python -m ipykernel install --user --name= *EnvironmentName*
 
 # Instructions:
 
-The repository is filled with demo data, allowing to test the notebooks. The notebooks are:
+The repository consists of a series of scripts that will combine user-selected genomes with genomes of the EggNOG database to create a single dataframe of gene counts per species per orthologous gene group. This dataframe is used for various analyses and visualizations in the jupyter notebooks. The graphical abstract shows how these notebooks are used in the manuscript.
+
+![alt text](https://github.com/Philipgdv/Methylotrophy/blob/main/Figures/GraphicalAbstract.png?raw=true)
+
+## Run on the demo data
+
+The repository is filled with demo data, allowing to test the notebooks. The demo file is a subset of the full dataframe The notebooks are:
 ```
 1_COG_CountRefSpecies.ipynb
 2_COG_PresenceTaxa.ipynb
@@ -61,7 +67,10 @@ The repository is filled with demo data, allowing to test the notebooks. The not
 4_LGT_MSA&Tree.ipynb
 ```
 
-If you wish to run the full analysis, run the following steps:
+## Run the full analysis
+
+If you wish to run the full analysis and recreate the full dataframe, run the following steps:
+
 - 1: change directory to the Methylotrophy folder & initiate it by running in the terminal (Where 1935183 is the taxon number of Asgardarchaea):
 ```
 cd /Methylotrophy
