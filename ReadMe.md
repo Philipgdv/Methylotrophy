@@ -7,7 +7,7 @@ By Philip J. Gorter de Vries, Alex Toftgaard Nielsen, Alfred M. Spormann
 
 - [System Requirements](#system-requirements)
 - [Installation Guide](#installation-guide)
-- [Instructionst](#instructions)
+- [Instructions](#instructions)
 - [License](#license)
 
 # System Requirements
