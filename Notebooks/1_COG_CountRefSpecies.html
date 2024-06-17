@@ -1,0 +1,1432 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Load and subset the dataframe of COGs &#8212; Methylotrophy Origin of Life</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/documentation_options.js?v=125c9c8b"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/1_COG_CountRefSpecies';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Plot the NCBI classification tree from file" href="2_COG_PresenceTaxa.html" />
+    <link rel="prev" title="Methylotrophic Origin of Life" href="../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Methylotrophy Origin of Life</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Philipgdv/Methylotrophy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Methylotrophic Origin of Life
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Scripts:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Load and subset the dataframe of COGs</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="2_COG_PresenceTaxa.html">Plot the NCBI classification tree from file</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="3_COG_CoOccurence.html">Load the OG DataFrame</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="4_LGT_MSA%26Tree.html">Manually add the archaeal COGs, use root level of EggNOG 6</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Philipgdv/Methylotrophy/blob/master/Notebooks/1_COG_CountRefSpecies.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Philipgdv/Methylotrophy" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Philipgdv/Methylotrophy/edit/master/Notebooks/1_COG_CountRefSpecies.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/1_COG_CountRefSpecies.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Load and subset the dataframe of COGs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Load and subset the dataframe of COGs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-of-wlp-related-cogs">list of WLP-related COGs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subset-to-only-the-reference-species-and-wlp-genes">Subset to only the reference species and WLP genes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-species-names">Find species names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-tree-with-feature-annotation">Build the tree with feature annotation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-separately-for-the-figure">Plot Separately for the figure</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">ete3</span> <span class="kn">import</span> <span class="n">Tree</span><span class="p">,</span> <span class="n">ProfileFace</span><span class="p">,</span> <span class="n">TreeStyle</span><span class="p">,</span> <span class="n">BarChartFace</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Demo</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Change to False if you want to run the script on the full dataset</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="load-and-subset-the-dataframe-of-cogs">
+<h1>Load and subset the dataframe of COGs<a class="headerlink" href="#load-and-subset-the-dataframe-of-cogs" title="Link to this heading">#</a></h1>
+<section id="list-of-wlp-related-cogs">
+<h2>list of WLP-related COGs<a class="headerlink" href="#list-of-wlp-related-cogs" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">WLP</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../Data/input/AllWLPGenes.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span>
+                  <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;Category&quot;</span><span class="p">,</span> <span class="s2">&quot;Group&quot;</span><span class="p">,</span> <span class="s2">&quot;GeneName&quot;</span><span class="p">,</span> <span class="s2">&quot;COG&quot;</span><span class="p">]]</span>
+<span class="n">WLP</span><span class="p">[</span><span class="s2">&quot;COGName&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">WLP</span><span class="o">.</span><span class="n">GeneName</span><span class="o">+</span><span class="s2">&quot; (&quot;</span><span class="o">+</span><span class="n">WLP</span><span class="o">.</span><span class="n">COG</span><span class="o">+</span><span class="s2">&quot;)&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">Demo</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../Data/demo/OFOG&amp;eOGCounts.csv&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../Data/output/AllOFOG&amp;eOGCounts.csv&quot;</span>
+
+<span class="n">OFOGs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">Demo</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">AsgardSpeciesList</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Loki 4&quot;</span><span class="p">,</span> <span class="s2">&quot;Thor&quot;</span><span class="p">]</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">AsgardSpeciesList</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+        <span class="s2">&quot;../Data/input/ProposedClassification.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+
+<span class="n">RefSpeciesList</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;574087&quot;</span><span class="p">,</span> <span class="s2">&quot;931626&quot;</span><span class="p">,</span> <span class="s2">&quot;264732&quot;</span><span class="p">,</span> <span class="s2">&quot;33035&quot;</span><span class="p">,</span> <span class="s2">&quot;1123288&quot;</span><span class="p">,</span> <span class="s2">&quot;903814&quot;</span><span class="p">,</span> <span class="s2">&quot;748727&quot;</span><span class="p">,</span> <span class="s2">&quot;545694&quot;</span><span class="p">,</span> <span class="s2">&quot;903818&quot;</span><span class="p">,</span> <span class="s2">&quot;243232&quot;</span><span class="p">,</span> <span class="s2">&quot;426368&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;192952&quot;</span><span class="p">,</span> <span class="s2">&quot;323259&quot;</span><span class="p">,</span> <span class="s2">&quot;304371&quot;</span><span class="p">,</span> <span class="s2">&quot;410358&quot;</span><span class="p">,</span> <span class="s2">&quot;456320&quot;</span><span class="p">,</span> <span class="s2">&quot;419665&quot;</span><span class="p">,</span> <span class="s2">&quot;339860&quot;</span><span class="p">]</span>  <span class="c1"># List the reference species used in the notebooks</span>
+<span class="n">RefSpeciesList</span> <span class="o">=</span> <span class="n">RefSpeciesList</span> <span class="o">+</span> <span class="n">AsgardSpeciesList</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="subset-to-only-the-reference-species-and-wlp-genes">
+<h2>Subset to only the reference species and WLP genes<a class="headerlink" href="#subset-to-only-the-reference-species-and-wlp-genes" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RefSpecies</span> <span class="o">=</span> <span class="n">OFOGs</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">OFOGs</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">RefSpeciesList</span><span class="p">)]</span>
+<span class="n">RefSpecies</span>
+
+<span class="n">WLP_Genes</span> <span class="o">=</span> <span class="n">WLP</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">RefSpecies</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s2">&quot;COG&quot;</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span>
+    <span class="s2">&quot;COGName&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;GeneName&quot;</span><span class="p">,</span> <span class="s2">&quot;Category&quot;</span><span class="p">,</span> <span class="s2">&quot;Group&quot;</span><span class="p">,</span> <span class="s2">&quot;COG&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">WLP_Genes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1123288</th>
+      <th>192952</th>
+      <th>243232</th>
+      <th>264732</th>
+      <th>304371</th>
+      <th>323259</th>
+      <th>33035</th>
+      <th>339860</th>
+      <th>410358</th>
+      <th>419665</th>
+      <th>426368</th>
+      <th>456320</th>
+      <th>545694</th>
+      <th>574087</th>
+      <th>748727</th>
+      <th>903814</th>
+      <th>903818</th>
+      <th>931626</th>
+      <th>Loki 4</th>
+      <th>Thor</th>
+    </tr>
+    <tr>
+      <th>COGName</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>fmdC (COG2218)</th>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ftr (COG2037)</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>mch (COG3252)</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>mtd (COG1927)</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>mer (COG2141)</th>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>mtrH (COG1962)</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>fdhA (COG3383)</th>
+      <td>8.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>6.0</td>
+      <td>7.0</td>
+      <td>4.0</td>
+      <td>7.0</td>
+      <td>8.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>fhs (COG2759)</th>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>folD (COG0190)</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>mtdA (COG0373)</th>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>metF (COG0685)</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AcsE (COG1410)</th>
+      <td>9.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>9.0</td>
+      <td>8.0</td>
+      <td>12.0</td>
+      <td>3.0</td>
+      <td>15.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CdhB (COG1880)</th>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CdhD/AcsD (COG2069)</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CdhE/AcsC (COG1456)</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CooS/AcsA (COG1151)</th>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CdhA (COG1152)</th>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Cdhc (COG1614)</th>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>pta (COG0280)</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ackA (COG0282)</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="find-species-names">
+<h2>Find species names<a class="headerlink" href="#find-species-names" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NCBIRefIDs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../Data/input/NCBIRefIDs.tsv&quot;</span><span class="p">,</span>
+                         <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">NCBIRefIDs</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;TaxID&quot;</span><span class="p">,</span> <span class="s2">&quot;TaxName&quot;</span><span class="p">]</span>
+<span class="n">NCBIRefIDs</span> <span class="o">=</span> <span class="n">NCBIRefIDs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;TaxID&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">NCBIRefIDs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TaxName</th>
+    </tr>
+    <tr>
+      <th>TaxID</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>574087</th>
+      <td>Acetohalobium arabaticum</td>
+    </tr>
+    <tr>
+      <th>931626</th>
+      <td>Acetobacterium woodii</td>
+    </tr>
+    <tr>
+      <th>264732</th>
+      <td>Moorella thermoacetica</td>
+    </tr>
+    <tr>
+      <th>33035</th>
+      <td>Blautia producta</td>
+    </tr>
+    <tr>
+      <th>1123288</th>
+      <td>Sporomusa ovata</td>
+    </tr>
+    <tr>
+      <th>903814</th>
+      <td>Eubacterium limosum</td>
+    </tr>
+    <tr>
+      <th>748727</th>
+      <td>Clostridium ljungdahlii</td>
+    </tr>
+    <tr>
+      <th>545694</th>
+      <td>Treponema primitia</td>
+    </tr>
+    <tr>
+      <th>903818</th>
+      <td>Holophaga foetida</td>
+    </tr>
+    <tr>
+      <th>243232</th>
+      <td>Methanocaldococcus jannaschii</td>
+    </tr>
+    <tr>
+      <th>426368</th>
+      <td>Methanococcus maripaludis</td>
+    </tr>
+    <tr>
+      <th>192952</th>
+      <td>Methanosarcina mazei</td>
+    </tr>
+    <tr>
+      <th>323259</th>
+      <td>Methanospirillum hungatei</td>
+    </tr>
+    <tr>
+      <th>304371</th>
+      <td>Methanocella paludicola</td>
+    </tr>
+    <tr>
+      <th>410358</th>
+      <td>Methanocorpusculum labreanum</td>
+    </tr>
+    <tr>
+      <th>456320</th>
+      <td>Methanococcus voltae</td>
+    </tr>
+    <tr>
+      <th>419665</th>
+      <td>Methanococcus aeolicus</td>
+    </tr>
+    <tr>
+      <th>339860</th>
+      <td>Methanosphaera stadtmanae</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SpeciesIndexDF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../Data/input/SpeciesIndexDF.tsv&quot;</span><span class="p">,</span>
+                             <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;Proteome Id&quot;</span><span class="p">)[</span><span class="s2">&quot;Organism&quot;</span><span class="p">]</span>
+<span class="n">SpNamesID</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">SpeciesIndexDF</span><span class="p">,</span> <span class="n">NCBIRefIDs</span><span class="p">[</span><span class="s2">&quot;TaxName&quot;</span><span class="p">]])</span>
+<span class="n">SpNamesID</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UP000324665          Thorarchaeota archaeon (strain OWC)
+UP000321408    Candidatus Prometheoarchaeum syntrophicum
+574087                          Acetohalobium arabaticum
+931626                             Acetobacterium woodii
+264732                            Moorella thermoacetica
+33035                                   Blautia producta
+1123288                                  Sporomusa ovata
+903814                               Eubacterium limosum
+748727                           Clostridium ljungdahlii
+545694                                Treponema primitia
+903818                                 Holophaga foetida
+243232                     Methanocaldococcus jannaschii
+426368                         Methanococcus maripaludis
+192952                              Methanosarcina mazei
+323259                         Methanospirillum hungatei
+304371                           Methanocella paludicola
+410358                      Methanocorpusculum labreanum
+456320                              Methanococcus voltae
+419665                            Methanococcus aeolicus
+339860                         Methanosphaera stadtmanae
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="build-the-tree-with-feature-annotation">
+<h2>Build the tree with feature annotation<a class="headerlink" href="#build-the-tree-with-feature-annotation" title="Link to this heading">#</a></h2>
+<p>Manual work needed: create CombninedSpeciesTreeETE.nw made using orthofinder, NCBI ID’s are slightly different to the ones from the strains in EggNOG so that’s corrected in the .nw file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Combined</span> <span class="o">=</span> <span class="n">Tree</span><span class="p">(</span><span class="s2">&quot;../Data/input/CombninedSpeciesTreeETE.nw&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Combined</span><span class="o">.</span><span class="n">ladderize</span><span class="p">()</span>
+
+<span class="n">ProposedClass</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../Data/input/ProposedClassification.csv&quot;</span><span class="p">,</span>
+                            <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;UPID&quot;</span><span class="p">)</span>  <span class="c1"># [&quot;Organism&quot;]</span>
+<span class="n">LeavesToKeep</span> <span class="o">=</span> <span class="n">ProposedClass</span><span class="p">[</span><span class="o">~</span><span class="n">ProposedClass</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()]</span>
+<span class="n">LeavesToKeep</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;TaxName&quot;</span><span class="p">]</span>
+<span class="n">Combined</span><span class="o">.</span><span class="n">prune</span><span class="p">(</span><span class="n">NCBIRefIDs</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">LeavesToKeep</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+
+<span class="c1"># Add columns to link to the count matrix</span>
+<span class="n">LeavesToKeep</span><span class="p">[</span><span class="s2">&quot;Feature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">LeavesToKeep</span><span class="p">[</span><span class="s2">&quot;TaxName&quot;</span><span class="p">]</span>
+<span class="n">NCBIRefIDs</span><span class="p">[</span><span class="s2">&quot;Feature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">NCBIRefIDs</span><span class="o">.</span><span class="n">index</span>
+
+<span class="c1"># Combine into single indexing dataframe</span>
+<span class="n">SpNamesID</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">LeavesToKeep</span><span class="p">,</span> <span class="n">NCBIRefIDs</span><span class="p">])</span>
+
+<span class="c1"># Rename the Asgard leaves so that they match the median counts instead of the chosen species</span>
+<span class="k">for</span> <span class="n">lf</span> <span class="ow">in</span> <span class="n">Combined</span><span class="o">.</span><span class="n">iter_leaves</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">lf</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">LeavesToKeep</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
+        <span class="n">lf</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">LeavesToKeep</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">lf</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Determined after running again, but manually keep only the species so that Asgardarchaea lacking the CODH complex are not kept.</span>
+<span class="n">Combined</span><span class="o">.</span><span class="n">prune</span><span class="p">(</span><span class="n">RefSpeciesList</span><span class="p">)</span>
+
+<span class="n">BranchOrder</span> <span class="o">=</span> <span class="n">Combined</span><span class="o">.</span><span class="n">get_leaf_names</span><span class="p">()</span>
+
+<span class="c1"># Add the counts to the specific leaves of the tree and change the names from TaxID to actual names</span>
+<span class="k">for</span> <span class="n">lf</span> <span class="ow">in</span> <span class="n">Combined</span><span class="o">.</span><span class="n">iter_leaves</span><span class="p">():</span>
+    <span class="n">lf</span><span class="o">.</span><span class="n">add_features</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="n">WLP_Genes</span><span class="p">[</span><span class="n">lf</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">lf</span><span class="o">.</span><span class="n">add_features</span><span class="p">(</span><span class="n">deviation</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">WLP_Genes</span><span class="p">))])</span>
+    <span class="n">lf</span><span class="o">.</span><span class="n">add_face</span><span class="p">(</span><span class="n">ProfileFace</span><span class="p">(</span><span class="n">max_v</span><span class="o">=</span><span class="mf">36.0</span><span class="p">,</span> <span class="n">min_v</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">center_v</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;heatmap&#39;</span><span class="p">,</span>
+                <span class="n">colorscheme</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">WLP_Genes</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;aligned&quot;</span><span class="p">)</span>
+    <span class="n">lf</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">SpNamesID</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Feature&quot;</span><span class="p">)[</span><span class="s2">&quot;TaxName&quot;</span><span class="p">][</span><span class="n">lf</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+
+<span class="n">description</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">WLP_Genes</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">axisface</span> <span class="o">=</span> <span class="n">BarChartFace</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">WLP_Genes</span><span class="o">.</span><span class="n">index</span><span class="p">)),</span> <span class="n">width</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">WLP_Genes</span><span class="p">)</span>
+                        <span class="o">*</span> <span class="mi">10</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">WLP_Genes</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">scale_fsize</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ts</span> <span class="o">=</span> <span class="n">TreeStyle</span><span class="p">()</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">draw_guiding_lines</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">show_leaf_name</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">aligned_foot</span><span class="o">.</span><span class="n">add_face</span><span class="p">(</span><span class="n">axisface</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">show_scale</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1">#Combined.render(&#39;../Data/output/heatmap.png&#39;, tree_style=ts, dpi = 75)</span>
+<span class="n">Combined</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%%</span><span class="s2">inline&quot;</span><span class="p">,</span> <span class="n">tree_style</span><span class="o">=</span><span class="n">ts</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T/ipykernel_24869/2650320215.py:2: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  LeavesToKeep[&quot;Feature&quot;] = LeavesToKeep[&quot;TaxName&quot;]
+</pre></div>
+</div>
+<img alt="../_images/c928a1628fc0d319310eebdfd759583dba28615f101ffce3a00cb54bad8a4f11.png" src="../_images/c928a1628fc0d319310eebdfd759583dba28615f101ffce3a00cb54bad8a4f11.png" />
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="plot-separately-for-the-figure">
+<h1>Plot Separately for the figure<a class="headerlink" href="#plot-separately-for-the-figure" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># made using orthofinder, NCBI ID&#39;s are slightly different to the ones from the strains in EggNOG so that&#39;s corrected in the .nw file.</span>
+<span class="n">Combined</span> <span class="o">=</span> <span class="n">Tree</span><span class="p">(</span><span class="s2">&quot;../Data/input/CombninedSpeciesTreeETE.nw&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Combined</span><span class="o">.</span><span class="n">ladderize</span><span class="p">()</span>
+
+<span class="n">LeavesToKeep</span> <span class="o">=</span> <span class="n">ProposedClass</span><span class="p">[</span><span class="o">~</span><span class="n">ProposedClass</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()]</span>
+<span class="n">LeavesToKeep</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;TaxName&quot;</span><span class="p">]</span>
+<span class="n">Combined</span><span class="o">.</span><span class="n">prune</span><span class="p">(</span><span class="n">NCBIRefIDs</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">LeavesToKeep</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+
+<span class="c1"># Add columns to link to the count matrix</span>
+<span class="n">LeavesToKeep</span><span class="p">[</span><span class="s2">&quot;Feature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">LeavesToKeep</span><span class="p">[</span><span class="s2">&quot;TaxName&quot;</span><span class="p">]</span>
+<span class="n">NCBIRefIDs</span><span class="p">[</span><span class="s2">&quot;Feature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">NCBIRefIDs</span><span class="o">.</span><span class="n">index</span>
+
+<span class="c1"># Combine into single indexing dataframe</span>
+<span class="n">SpNamesID</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">LeavesToKeep</span><span class="p">,</span> <span class="n">NCBIRefIDs</span><span class="p">])</span>
+
+<span class="c1"># Rename the Asgard leaves so that they match the median counts instead of the chosen species</span>
+<span class="k">for</span> <span class="n">lf</span> <span class="ow">in</span> <span class="n">Combined</span><span class="o">.</span><span class="n">iter_leaves</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">lf</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">LeavesToKeep</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
+        <span class="n">lf</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">LeavesToKeep</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">lf</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">Combined</span><span class="o">.</span><span class="n">prune</span><span class="p">(</span><span class="n">RefSpeciesList</span><span class="p">)</span>
+
+<span class="n">BranchOrder</span> <span class="o">=</span> <span class="n">Combined</span><span class="o">.</span><span class="n">get_leaf_names</span><span class="p">()</span>
+
+
+<span class="c1"># Add the counts to the specific leaves of the tree and change the names from TaxID to actual names</span>
+<span class="k">for</span> <span class="n">lf</span> <span class="ow">in</span> <span class="n">Combined</span><span class="o">.</span><span class="n">iter_leaves</span><span class="p">():</span>
+    <span class="n">lf</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">SpNamesID</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Feature&quot;</span><span class="p">)[</span><span class="s2">&quot;TaxName&quot;</span><span class="p">][</span><span class="n">lf</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+
+<span class="n">description</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">WLP_Genes</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">axisface</span> <span class="o">=</span> <span class="n">BarChartFace</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">WLP_Genes</span><span class="o">.</span><span class="n">index</span><span class="p">)),</span> <span class="n">width</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">WLP_Genes</span><span class="p">)</span>
+                        <span class="o">*</span> <span class="mi">10</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">WLP_Genes</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">scale_fsize</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ts</span> <span class="o">=</span> <span class="n">TreeStyle</span><span class="p">()</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">draw_guiding_lines</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">show_leaf_name</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">aligned_foot</span><span class="o">.</span><span class="n">add_face</span><span class="p">(</span><span class="n">axisface</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">show_scale</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1">#Combined.render(&#39;../Data/output/heatmap.png&#39;, tree_style=ts, dpi = 75)</span>
+<span class="n">Combined</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%%</span><span class="s2">inline&quot;</span><span class="p">,</span> <span class="n">tree_style</span><span class="o">=</span><span class="n">ts</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/qr/vm827mh53sd6708z2k3_tnnrz3fj08/T/ipykernel_24869/3967582564.py:9: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  LeavesToKeep[&quot;Feature&quot;] = LeavesToKeep[&quot;TaxName&quot;]
+</pre></div>
+</div>
+<img alt="../_images/304950a7c697f7f145ddf9f95b4bdb03d1fb00d4d12f15011f19d80da31f5bc1.png" src="../_images/304950a7c697f7f145ddf9f95b4bdb03d1fb00d4d12f15011f19d80da31f5bc1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">WLP_Genes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">WLP</span><span class="o">.</span><span class="n">COGName</span><span class="p">[</span><span class="n">WLP</span><span class="o">.</span><span class="n">Category</span> <span class="o">==</span> <span class="s2">&quot;Metabolic&quot;</span><span class="p">]</span>
+                         <span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">BranchOrder</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greens&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a7948f49772597cafe5d7ab0f50b17d8ee2b55de081eaa7efa3e04f60ca11899.png" src="../_images/a7948f49772597cafe5d7ab0f50b17d8ee2b55de081eaa7efa3e04f60ca11899.png" />
+</div>
+</div>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Methylotrophic Origin of Life</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2_COG_PresenceTaxa.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Plot the NCBI classification tree from file</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Load and subset the dataframe of COGs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-of-wlp-related-cogs">list of WLP-related COGs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subset-to-only-the-reference-species-and-wlp-genes">Subset to only the reference species and WLP genes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-species-names">Find species names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-tree-with-feature-annotation">Build the tree with feature annotation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-separately-for-the-figure">Plot Separately for the figure</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Philip Gorter de Vries
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Philip Gorter de Vries.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,3350 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Load the OG DataFrame &#8212; Methylotrophy Origin of Life</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/documentation_options.js?v=125c9c8b"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/3_COG_CoOccurence';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Manually add the archaeal COGs, use root level of EggNOG 6" href="4_LGT_MSA%26Tree.html" />
+    <link rel="prev" title="Plot the NCBI classification tree from file" href="2_COG_PresenceTaxa.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Methylotrophy Origin of Life</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Philipgdv/Methylotrophy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Methylotrophic Origin of Life
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Scripts:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_COG_CountRefSpecies.html">Load and subset the dataframe of COGs</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="2_COG_PresenceTaxa.html">Plot the NCBI classification tree from file</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Load the OG DataFrame</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="4_LGT_MSA%26Tree.html">Manually add the archaeal COGs, use root level of EggNOG 6</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Philipgdv/Methylotrophy/blob/master/Notebooks/3_COG_CoOccurence.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Philipgdv/Methylotrophy" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Philipgdv/Methylotrophy/edit/master/Notebooks/3_COG_CoOccurence.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/3_COG_CoOccurence.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Load the OG DataFrame</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Load the OG DataFrame</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-jaccard-pairwise-distance">Compute the Jaccard pairwise distance</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-hierarchichal-clusters">Create Hierarchichal Clusters</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-largest-cluster">Plot the largest cluster</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-cluster-of-choice">Plot a cluster of choice</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">fastcluster</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">pairwise_distances</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">scipy.spatial</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="k">as</span> <span class="nn">hc</span>
+
+<span class="kn">from</span> <span class="nn">ete3</span> <span class="kn">import</span> <span class="n">NCBITaxa</span>
+<span class="n">ncbi</span> <span class="o">=</span> <span class="n">NCBITaxa</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Demo</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Change to False if you want to run the script on the full dataset</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="load-the-og-dataframe">
+<h1>Load the OG DataFrame<a class="headerlink" href="#load-the-og-dataframe" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">Demo</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../Data/demo/OFOG&amp;eOGCounts.csv&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../Data/output/AllOFOG&amp;eOGCounts.csv&quot;</span>
+
+<span class="n">Root_OG_Counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Root_OG_Counts</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1047013</th>
+      <th>1054217</th>
+      <th>1117647</th>
+      <th>1120960</th>
+      <th>1121920</th>
+      <th>1122621</th>
+      <th>1123288</th>
+      <th>1123376</th>
+      <th>1125701</th>
+      <th>1131269</th>
+      <th>...</th>
+      <th>907239</th>
+      <th>907348</th>
+      <th>926567</th>
+      <th>927658</th>
+      <th>929558</th>
+      <th>931626</th>
+      <th>938709</th>
+      <th>985053</th>
+      <th>Loki 4</th>
+      <th>Thor</th>
+    </tr>
+    <tr>
+      <th>COG</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>28HFG</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>28HG3</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>28KRP</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>28M6C</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>28R8J</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 118 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RootOGs</span> <span class="o">=</span> <span class="n">Root_OG_Counts</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="n">RootOGs</span> <span class="o">=</span> <span class="n">RootOGs</span><span class="p">[</span><span class="n">RootOGs</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="n">RootOGs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1047013</th>
+      <th>1054217</th>
+      <th>1117647</th>
+      <th>1120960</th>
+      <th>1121920</th>
+      <th>1122621</th>
+      <th>1123288</th>
+      <th>1123376</th>
+      <th>1125701</th>
+      <th>1131269</th>
+      <th>...</th>
+      <th>907239</th>
+      <th>907348</th>
+      <th>926567</th>
+      <th>927658</th>
+      <th>929558</th>
+      <th>931626</th>
+      <th>938709</th>
+      <th>985053</th>
+      <th>Loki 4</th>
+      <th>Thor</th>
+    </tr>
+    <tr>
+      <th>COG</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>COG0010</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG0190</th>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>COG0280</th>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG0282</th>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG0373</th>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG0551</th>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG0669</th>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG0685</th>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG0717</th>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>...</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG1152</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG1227</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG1410</th>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>...</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG1445</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG1456</th>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG1605</th>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG1614</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG1962</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>COG2037</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG2069</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG2119</th>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG2141</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>COG2218</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG2759</th>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>COG3104</th>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG3200</th>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG3252</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG3339</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG3383</th>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG3836</th>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>COG4021</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+<p>30 rows × 118 columns</p>
+</div></div></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="compute-the-jaccard-pairwise-distance">
+<h1>Compute the Jaccard pairwise distance<a class="headerlink" href="#compute-the-jaccard-pairwise-distance" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">Jaccard_dist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pairwise_distances</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="n">RootOGs</span><span class="p">),</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;jaccard&quot;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">RootOGs</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">RootOGs</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="n">Jaccard_dist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.68 ms, sys: 9.54 ms, total: 14.2 ms
+Wall time: 11.2 ms
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>COG</th>
+      <th>COG0010</th>
+      <th>COG0190</th>
+      <th>COG0280</th>
+      <th>COG0282</th>
+      <th>COG0373</th>
+      <th>COG0551</th>
+      <th>COG0669</th>
+      <th>COG0685</th>
+      <th>COG0717</th>
+      <th>COG1152</th>
+      <th>...</th>
+      <th>COG2141</th>
+      <th>COG2218</th>
+      <th>COG2759</th>
+      <th>COG3104</th>
+      <th>COG3200</th>
+      <th>COG3252</th>
+      <th>COG3339</th>
+      <th>COG3383</th>
+      <th>COG3836</th>
+      <th>COG4021</th>
+    </tr>
+    <tr>
+      <th>COG</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>COG0010</th>
+      <td>0.000000</td>
+      <td>0.530435</td>
+      <td>0.568627</td>
+      <td>0.548077</td>
+      <td>0.423077</td>
+      <td>0.707865</td>
+      <td>0.504505</td>
+      <td>0.448598</td>
+      <td>0.587629</td>
+      <td>0.860465</td>
+      <td>...</td>
+      <td>0.678571</td>
+      <td>0.850000</td>
+      <td>0.541667</td>
+      <td>0.771084</td>
+      <td>0.872093</td>
+      <td>0.837500</td>
+      <td>0.678161</td>
+      <td>0.660550</td>
+      <td>0.804878</td>
+      <td>0.862500</td>
+    </tr>
+    <tr>
+      <th>COG0190</th>
+      <td>0.530435</td>
+      <td>0.000000</td>
+      <td>0.290323</td>
+      <td>0.236559</td>
+      <td>0.405405</td>
+      <td>0.666667</td>
+      <td>0.054348</td>
+      <td>0.262136</td>
+      <td>0.717949</td>
+      <td>0.890000</td>
+      <td>...</td>
+      <td>0.807692</td>
+      <td>0.980583</td>
+      <td>0.500000</td>
+      <td>0.736264</td>
+      <td>0.791209</td>
+      <td>0.990476</td>
+      <td>0.623656</td>
+      <td>0.271739</td>
+      <td>0.831579</td>
+      <td>0.960000</td>
+    </tr>
+    <tr>
+      <th>COG0280</th>
+      <td>0.568627</td>
+      <td>0.290323</td>
+      <td>0.000000</td>
+      <td>0.215190</td>
+      <td>0.547170</td>
+      <td>0.734940</td>
+      <td>0.247191</td>
+      <td>0.408163</td>
+      <td>0.824074</td>
+      <td>0.900000</td>
+      <td>...</td>
+      <td>0.825581</td>
+      <td>0.962025</td>
+      <td>0.571429</td>
+      <td>0.722222</td>
+      <td>0.757143</td>
+      <td>0.975309</td>
+      <td>0.636364</td>
+      <td>0.400000</td>
+      <td>0.794521</td>
+      <td>0.961538</td>
+    </tr>
+    <tr>
+      <th>COG0282</th>
+      <td>0.548077</td>
+      <td>0.236559</td>
+      <td>0.215190</td>
+      <td>0.000000</td>
+      <td>0.527778</td>
+      <td>0.674699</td>
+      <td>0.211111</td>
+      <td>0.357143</td>
+      <td>0.800000</td>
+      <td>0.879518</td>
+      <td>...</td>
+      <td>0.835165</td>
+      <td>0.951807</td>
+      <td>0.465909</td>
+      <td>0.756410</td>
+      <td>0.789474</td>
+      <td>0.964706</td>
+      <td>0.607595</td>
+      <td>0.301205</td>
+      <td>0.792208</td>
+      <td>0.963855</td>
+    </tr>
+    <tr>
+      <th>COG0373</th>
+      <td>0.423077</td>
+      <td>0.405405</td>
+      <td>0.547170</td>
+      <td>0.527778</td>
+      <td>0.000000</td>
+      <td>0.602273</td>
+      <td>0.403670</td>
+      <td>0.326923</td>
+      <td>0.535354</td>
+      <td>0.795455</td>
+      <td>...</td>
+      <td>0.632184</td>
+      <td>0.837209</td>
+      <td>0.666667</td>
+      <td>0.791209</td>
+      <td>0.793103</td>
+      <td>0.825581</td>
+      <td>0.677419</td>
+      <td>0.504854</td>
+      <td>0.822222</td>
+      <td>0.862069</td>
+    </tr>
+    <tr>
+      <th>COG0551</th>
+      <td>0.707865</td>
+      <td>0.666667</td>
+      <td>0.734940</td>
+      <td>0.674699</td>
+      <td>0.602273</td>
+      <td>0.000000</td>
+      <td>0.655914</td>
+      <td>0.684211</td>
+      <td>0.814815</td>
+      <td>0.812500</td>
+      <td>...</td>
+      <td>0.771930</td>
+      <td>0.840909</td>
+      <td>0.807229</td>
+      <td>0.780000</td>
+      <td>0.857143</td>
+      <td>0.869565</td>
+      <td>0.766667</td>
+      <td>0.653846</td>
+      <td>0.860000</td>
+      <td>0.936170</td>
+    </tr>
+    <tr>
+      <th>COG0669</th>
+      <td>0.504505</td>
+      <td>0.054348</td>
+      <td>0.247191</td>
+      <td>0.211111</td>
+      <td>0.403670</td>
+      <td>0.655914</td>
+      <td>0.000000</td>
+      <td>0.222222</td>
+      <td>0.732759</td>
+      <td>0.886598</td>
+      <td>...</td>
+      <td>0.813725</td>
+      <td>0.969697</td>
+      <td>0.500000</td>
+      <td>0.727273</td>
+      <td>0.784091</td>
+      <td>0.980198</td>
+      <td>0.611111</td>
+      <td>0.227273</td>
+      <td>0.813187</td>
+      <td>0.958763</td>
+    </tr>
+    <tr>
+      <th>COG0685</th>
+      <td>0.448598</td>
+      <td>0.262136</td>
+      <td>0.408163</td>
+      <td>0.357143</td>
+      <td>0.326923</td>
+      <td>0.684211</td>
+      <td>0.222222</td>
+      <td>0.000000</td>
+      <td>0.663636</td>
+      <td>0.863158</td>
+      <td>...</td>
+      <td>0.765306</td>
+      <td>0.948454</td>
+      <td>0.500000</td>
+      <td>0.769231</td>
+      <td>0.824176</td>
+      <td>0.938144</td>
+      <td>0.655914</td>
+      <td>0.304348</td>
+      <td>0.800000</td>
+      <td>0.890110</td>
+    </tr>
+    <tr>
+      <th>COG0717</th>
+      <td>0.587629</td>
+      <td>0.717949</td>
+      <td>0.824074</td>
+      <td>0.800000</td>
+      <td>0.535354</td>
+      <td>0.814815</td>
+      <td>0.732759</td>
+      <td>0.663636</td>
+      <td>0.000000</td>
+      <td>0.765625</td>
+      <td>...</td>
+      <td>0.685714</td>
+      <td>0.803279</td>
+      <td>0.739583</td>
+      <td>0.893333</td>
+      <td>0.835821</td>
+      <td>0.786885</td>
+      <td>0.883721</td>
+      <td>0.742574</td>
+      <td>0.887324</td>
+      <td>0.838710</td>
+    </tr>
+    <tr>
+      <th>COG1152</th>
+      <td>0.860465</td>
+      <td>0.890000</td>
+      <td>0.900000</td>
+      <td>0.879518</td>
+      <td>0.795455</td>
+      <td>0.812500</td>
+      <td>0.886598</td>
+      <td>0.863158</td>
+      <td>0.765625</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.767442</td>
+      <td>0.740741</td>
+      <td>0.906667</td>
+      <td>0.976744</td>
+      <td>0.885714</td>
+      <td>0.750000</td>
+      <td>0.882353</td>
+      <td>0.857143</td>
+      <td>0.974359</td>
+      <td>0.935484</td>
+    </tr>
+    <tr>
+      <th>COG1227</th>
+      <td>0.721649</td>
+      <td>0.616162</td>
+      <td>0.626506</td>
+      <td>0.583333</td>
+      <td>0.639175</td>
+      <td>0.568966</td>
+      <td>0.604167</td>
+      <td>0.618557</td>
+      <td>0.820225</td>
+      <td>0.777778</td>
+      <td>...</td>
+      <td>0.803030</td>
+      <td>0.823529</td>
+      <td>0.682927</td>
+      <td>0.939394</td>
+      <td>0.898305</td>
+      <td>0.849057</td>
+      <td>0.814286</td>
+      <td>0.626506</td>
+      <td>0.900000</td>
+      <td>0.946429</td>
+    </tr>
+    <tr>
+      <th>COG1410</th>
+      <td>0.567308</td>
+      <td>0.239130</td>
+      <td>0.364706</td>
+      <td>0.344828</td>
+      <td>0.445545</td>
+      <td>0.615385</td>
+      <td>0.193182</td>
+      <td>0.233333</td>
+      <td>0.828829</td>
+      <td>0.862500</td>
+      <td>...</td>
+      <td>0.818182</td>
+      <td>0.963415</td>
+      <td>0.554348</td>
+      <td>0.766234</td>
+      <td>0.831169</td>
+      <td>0.976190</td>
+      <td>0.632911</td>
+      <td>0.262500</td>
+      <td>0.802632</td>
+      <td>0.950000</td>
+    </tr>
+    <tr>
+      <th>COG1445</th>
+      <td>0.795181</td>
+      <td>0.758242</td>
+      <td>0.767123</td>
+      <td>0.698630</td>
+      <td>0.813187</td>
+      <td>0.717391</td>
+      <td>0.750000</td>
+      <td>0.764045</td>
+      <td>0.934211</td>
+      <td>0.975610</td>
+      <td>...</td>
+      <td>0.877551</td>
+      <td>0.971429</td>
+      <td>0.727273</td>
+      <td>0.878049</td>
+      <td>0.948718</td>
+      <td>1.000000</td>
+      <td>0.795918</td>
+      <td>0.800000</td>
+      <td>0.894737</td>
+      <td>0.939394</td>
+    </tr>
+    <tr>
+      <th>COG1456</th>
+      <td>0.816092</td>
+      <td>0.828283</td>
+      <td>0.837500</td>
+      <td>0.819277</td>
+      <td>0.780220</td>
+      <td>0.734694</td>
+      <td>0.835052</td>
+      <td>0.835052</td>
+      <td>0.816901</td>
+      <td>0.750000</td>
+      <td>...</td>
+      <td>0.840000</td>
+      <td>0.700000</td>
+      <td>0.757143</td>
+      <td>0.957447</td>
+      <td>0.976744</td>
+      <td>0.750000</td>
+      <td>0.872727</td>
+      <td>0.792208</td>
+      <td>0.875000</td>
+      <td>0.914286</td>
+    </tr>
+    <tr>
+      <th>COG1605</th>
+      <td>0.474747</td>
+      <td>0.452830</td>
+      <td>0.546392</td>
+      <td>0.525253</td>
+      <td>0.360825</td>
+      <td>0.658537</td>
+      <td>0.436893</td>
+      <td>0.390000</td>
+      <td>0.549451</td>
+      <td>0.837500</td>
+      <td>...</td>
+      <td>0.675000</td>
+      <td>0.870130</td>
+      <td>0.663366</td>
+      <td>0.706667</td>
+      <td>0.739726</td>
+      <td>0.857143</td>
+      <td>0.705882</td>
+      <td>0.546392</td>
+      <td>0.851852</td>
+      <td>0.868421</td>
+    </tr>
+    <tr>
+      <th>COG1614</th>
+      <td>0.831325</td>
+      <td>0.877551</td>
+      <td>0.884615</td>
+      <td>0.864198</td>
+      <td>0.806818</td>
+      <td>0.727273</td>
+      <td>0.873684</td>
+      <td>0.861702</td>
+      <td>0.818182</td>
+      <td>0.741935</td>
+      <td>...</td>
+      <td>0.844444</td>
+      <td>0.680000</td>
+      <td>0.791045</td>
+      <td>0.976190</td>
+      <td>1.000000</td>
+      <td>0.740741</td>
+      <td>0.901961</td>
+      <td>0.840000</td>
+      <td>0.885714</td>
+      <td>0.933333</td>
+    </tr>
+    <tr>
+      <th>COG1962</th>
+      <td>0.850000</td>
+      <td>0.970588</td>
+      <td>0.962025</td>
+      <td>0.964286</td>
+      <td>0.863636</td>
+      <td>0.866667</td>
+      <td>0.980000</td>
+      <td>0.948454</td>
+      <td>0.803279</td>
+      <td>0.785714</td>
+      <td>...</td>
+      <td>0.694444</td>
+      <td>0.352941</td>
+      <td>0.914286</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.473684</td>
+      <td>0.937500</td>
+      <td>0.975000</td>
+      <td>0.969697</td>
+      <td>0.714286</td>
+    </tr>
+    <tr>
+      <th>COG2037</th>
+      <td>0.862500</td>
+      <td>0.990291</td>
+      <td>0.974684</td>
+      <td>0.963855</td>
+      <td>0.848837</td>
+      <td>0.863636</td>
+      <td>0.979798</td>
+      <td>0.958763</td>
+      <td>0.819672</td>
+      <td>0.730769</td>
+      <td>...</td>
+      <td>0.685714</td>
+      <td>0.071429</td>
+      <td>0.928571</td>
+      <td>0.972222</td>
+      <td>1.000000</td>
+      <td>0.133333</td>
+      <td>0.958333</td>
+      <td>0.974684</td>
+      <td>0.900000</td>
+      <td>0.761905</td>
+    </tr>
+    <tr>
+      <th>COG2069</th>
+      <td>0.831325</td>
+      <td>0.877551</td>
+      <td>0.884615</td>
+      <td>0.864198</td>
+      <td>0.806818</td>
+      <td>0.727273</td>
+      <td>0.873684</td>
+      <td>0.861702</td>
+      <td>0.818182</td>
+      <td>0.741935</td>
+      <td>...</td>
+      <td>0.844444</td>
+      <td>0.680000</td>
+      <td>0.791045</td>
+      <td>0.976190</td>
+      <td>1.000000</td>
+      <td>0.740741</td>
+      <td>0.901961</td>
+      <td>0.840000</td>
+      <td>0.885714</td>
+      <td>0.933333</td>
+    </tr>
+    <tr>
+      <th>COG2119</th>
+      <td>0.756098</td>
+      <td>0.789474</td>
+      <td>0.835443</td>
+      <td>0.817073</td>
+      <td>0.764045</td>
+      <td>0.849057</td>
+      <td>0.782609</td>
+      <td>0.769231</td>
+      <td>0.847222</td>
+      <td>0.900000</td>
+      <td>...</td>
+      <td>0.836735</td>
+      <td>0.944444</td>
+      <td>0.868421</td>
+      <td>0.829268</td>
+      <td>0.771429</td>
+      <td>0.916667</td>
+      <td>0.755102</td>
+      <td>0.789474</td>
+      <td>0.900000</td>
+      <td>0.942857</td>
+    </tr>
+    <tr>
+      <th>COG2141</th>
+      <td>0.678571</td>
+      <td>0.807692</td>
+      <td>0.825581</td>
+      <td>0.835165</td>
+      <td>0.632184</td>
+      <td>0.771930</td>
+      <td>0.813725</td>
+      <td>0.765306</td>
+      <td>0.685714</td>
+      <td>0.767442</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.694444</td>
+      <td>0.855422</td>
+      <td>0.787234</td>
+      <td>0.818182</td>
+      <td>0.628571</td>
+      <td>0.750000</td>
+      <td>0.865169</td>
+      <td>0.822222</td>
+      <td>0.756757</td>
+    </tr>
+    <tr>
+      <th>COG2218</th>
+      <td>0.850000</td>
+      <td>0.980583</td>
+      <td>0.962025</td>
+      <td>0.951807</td>
+      <td>0.837209</td>
+      <td>0.840909</td>
+      <td>0.969697</td>
+      <td>0.948454</td>
+      <td>0.803279</td>
+      <td>0.740741</td>
+      <td>...</td>
+      <td>0.694444</td>
+      <td>0.000000</td>
+      <td>0.914286</td>
+      <td>0.972973</td>
+      <td>1.000000</td>
+      <td>0.187500</td>
+      <td>0.959184</td>
+      <td>0.962025</td>
+      <td>0.903226</td>
+      <td>0.772727</td>
+    </tr>
+    <tr>
+      <th>COG2759</th>
+      <td>0.541667</td>
+      <td>0.500000</td>
+      <td>0.571429</td>
+      <td>0.465909</td>
+      <td>0.666667</td>
+      <td>0.807229</td>
+      <td>0.500000</td>
+      <td>0.500000</td>
+      <td>0.739583</td>
+      <td>0.906667</td>
+      <td>...</td>
+      <td>0.855422</td>
+      <td>0.914286</td>
+      <td>0.000000</td>
+      <td>0.868421</td>
+      <td>0.961538</td>
+      <td>0.900000</td>
+      <td>0.730769</td>
+      <td>0.571429</td>
+      <td>0.828571</td>
+      <td>0.928571</td>
+    </tr>
+    <tr>
+      <th>COG3104</th>
+      <td>0.771084</td>
+      <td>0.736264</td>
+      <td>0.722222</td>
+      <td>0.756410</td>
+      <td>0.791209</td>
+      <td>0.780000</td>
+      <td>0.727273</td>
+      <td>0.769231</td>
+      <td>0.893333</td>
+      <td>0.976744</td>
+      <td>...</td>
+      <td>0.787234</td>
+      <td>0.972973</td>
+      <td>0.868421</td>
+      <td>0.000000</td>
+      <td>0.735294</td>
+      <td>0.973684</td>
+      <td>0.780000</td>
+      <td>0.789474</td>
+      <td>0.777778</td>
+      <td>0.878788</td>
+    </tr>
+    <tr>
+      <th>COG3200</th>
+      <td>0.872093</td>
+      <td>0.791209</td>
+      <td>0.757143</td>
+      <td>0.789474</td>
+      <td>0.793103</td>
+      <td>0.857143</td>
+      <td>0.784091</td>
+      <td>0.824176</td>
+      <td>0.835821</td>
+      <td>0.885714</td>
+      <td>...</td>
+      <td>0.818182</td>
+      <td>1.000000</td>
+      <td>0.961538</td>
+      <td>0.735294</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.901961</td>
+      <td>0.791667</td>
+      <td>0.916667</td>
+      <td>0.933333</td>
+    </tr>
+    <tr>
+      <th>COG3252</th>
+      <td>0.837500</td>
+      <td>0.990476</td>
+      <td>0.975309</td>
+      <td>0.964706</td>
+      <td>0.825581</td>
+      <td>0.869565</td>
+      <td>0.980198</td>
+      <td>0.938144</td>
+      <td>0.786885</td>
+      <td>0.750000</td>
+      <td>...</td>
+      <td>0.628571</td>
+      <td>0.187500</td>
+      <td>0.900000</td>
+      <td>0.973684</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.960000</td>
+      <td>0.975309</td>
+      <td>0.870968</td>
+      <td>0.782609</td>
+    </tr>
+    <tr>
+      <th>COG3339</th>
+      <td>0.678161</td>
+      <td>0.623656</td>
+      <td>0.636364</td>
+      <td>0.607595</td>
+      <td>0.677419</td>
+      <td>0.766667</td>
+      <td>0.611111</td>
+      <td>0.655914</td>
+      <td>0.883721</td>
+      <td>0.882353</td>
+      <td>...</td>
+      <td>0.750000</td>
+      <td>0.959184</td>
+      <td>0.730769</td>
+      <td>0.780000</td>
+      <td>0.901961</td>
+      <td>0.960000</td>
+      <td>0.000000</td>
+      <td>0.670886</td>
+      <td>0.812500</td>
+      <td>0.863636</td>
+    </tr>
+    <tr>
+      <th>COG3383</th>
+      <td>0.660550</td>
+      <td>0.271739</td>
+      <td>0.400000</td>
+      <td>0.301205</td>
+      <td>0.504854</td>
+      <td>0.653846</td>
+      <td>0.227273</td>
+      <td>0.304348</td>
+      <td>0.742574</td>
+      <td>0.857143</td>
+      <td>...</td>
+      <td>0.865169</td>
+      <td>0.962025</td>
+      <td>0.571429</td>
+      <td>0.789474</td>
+      <td>0.791667</td>
+      <td>0.975309</td>
+      <td>0.670886</td>
+      <td>0.000000</td>
+      <td>0.777778</td>
+      <td>0.961538</td>
+    </tr>
+    <tr>
+      <th>COG3836</th>
+      <td>0.804878</td>
+      <td>0.831579</td>
+      <td>0.794521</td>
+      <td>0.792208</td>
+      <td>0.822222</td>
+      <td>0.860000</td>
+      <td>0.813187</td>
+      <td>0.800000</td>
+      <td>0.887324</td>
+      <td>0.974359</td>
+      <td>...</td>
+      <td>0.822222</td>
+      <td>0.903226</td>
+      <td>0.828571</td>
+      <td>0.777778</td>
+      <td>0.916667</td>
+      <td>0.870968</td>
+      <td>0.812500</td>
+      <td>0.777778</td>
+      <td>0.000000</td>
+      <td>0.935484</td>
+    </tr>
+    <tr>
+      <th>COG4021</th>
+      <td>0.862500</td>
+      <td>0.960000</td>
+      <td>0.961538</td>
+      <td>0.963855</td>
+      <td>0.862069</td>
+      <td>0.936170</td>
+      <td>0.958763</td>
+      <td>0.890110</td>
+      <td>0.838710</td>
+      <td>0.935484</td>
+      <td>...</td>
+      <td>0.756757</td>
+      <td>0.772727</td>
+      <td>0.928571</td>
+      <td>0.878788</td>
+      <td>0.933333</td>
+      <td>0.782609</td>
+      <td>0.863636</td>
+      <td>0.961538</td>
+      <td>0.935484</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>30 rows × 30 columns</p>
+</div></div></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="create-hierarchichal-clusters">
+<h1>Create Hierarchichal Clusters<a class="headerlink" href="#create-hierarchichal-clusters" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">linkage</span> <span class="o">=</span> <span class="n">hc</span><span class="o">.</span><span class="n">linkage</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">distance</span><span class="o">.</span><span class="n">squareform</span><span class="p">(</span><span class="n">Jaccard_dist</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;average&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4 ms, sys: 5.58 ms, total: 9.57 ms
+Wall time: 15.3 ms
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+
+<span class="n">clusters</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">Jaccard_dist</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">T_range</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="n">T_range</span><span class="p">:</span>
+    <span class="n">clusters</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="n">hc</span><span class="o">.</span><span class="n">fcluster</span><span class="p">(</span><span class="n">linkage</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;distance&#39;</span><span class="p">)</span>
+
+<span class="n">clusters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0.00</th>
+      <th>0.01</th>
+      <th>0.02</th>
+      <th>0.03</th>
+      <th>0.04</th>
+      <th>0.05</th>
+      <th>0.06</th>
+      <th>0.07</th>
+      <th>0.08</th>
+      <th>0.09</th>
+      <th>...</th>
+      <th>0.91</th>
+      <th>0.92</th>
+      <th>0.93</th>
+      <th>0.94</th>
+      <th>0.95</th>
+      <th>0.96</th>
+      <th>0.97</th>
+      <th>0.98</th>
+      <th>0.99</th>
+      <th>1.00</th>
+    </tr>
+    <tr>
+      <th>COG</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>COG0010</th>
+      <td>19</td>
+      <td>19</td>
+      <td>19</td>
+      <td>19</td>
+      <td>19</td>
+      <td>19</td>
+      <td>18</td>
+      <td>18</td>
+      <td>17</td>
+      <td>17</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG0190</th>
+      <td>12</td>
+      <td>12</td>
+      <td>12</td>
+      <td>12</td>
+      <td>12</td>
+      <td>12</td>
+      <td>12</td>
+      <td>12</td>
+      <td>11</td>
+      <td>11</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG0280</th>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>9</td>
+      <td>9</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG0282</th>
+      <td>11</td>
+      <td>11</td>
+      <td>11</td>
+      <td>11</td>
+      <td>11</td>
+      <td>11</td>
+      <td>11</td>
+      <td>11</td>
+      <td>10</td>
+      <td>10</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG0373</th>
+      <td>17</td>
+      <td>17</td>
+      <td>17</td>
+      <td>17</td>
+      <td>17</td>
+      <td>17</td>
+      <td>16</td>
+      <td>16</td>
+      <td>15</td>
+      <td>15</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG0551</th>
+      <td>21</td>
+      <td>21</td>
+      <td>21</td>
+      <td>21</td>
+      <td>21</td>
+      <td>21</td>
+      <td>20</td>
+      <td>20</td>
+      <td>19</td>
+      <td>19</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG0669</th>
+      <td>13</td>
+      <td>13</td>
+      <td>13</td>
+      <td>13</td>
+      <td>13</td>
+      <td>13</td>
+      <td>12</td>
+      <td>12</td>
+      <td>11</td>
+      <td>11</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG0685</th>
+      <td>15</td>
+      <td>15</td>
+      <td>15</td>
+      <td>15</td>
+      <td>15</td>
+      <td>15</td>
+      <td>14</td>
+      <td>14</td>
+      <td>13</td>
+      <td>13</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG0717</th>
+      <td>24</td>
+      <td>24</td>
+      <td>24</td>
+      <td>24</td>
+      <td>24</td>
+      <td>24</td>
+      <td>23</td>
+      <td>23</td>
+      <td>22</td>
+      <td>22</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG1152</th>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>7</td>
+      <td>7</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG1227</th>
+      <td>22</td>
+      <td>22</td>
+      <td>22</td>
+      <td>22</td>
+      <td>22</td>
+      <td>22</td>
+      <td>21</td>
+      <td>21</td>
+      <td>20</td>
+      <td>20</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG1410</th>
+      <td>14</td>
+      <td>14</td>
+      <td>14</td>
+      <td>14</td>
+      <td>14</td>
+      <td>14</td>
+      <td>13</td>
+      <td>13</td>
+      <td>12</td>
+      <td>12</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG1445</th>
+      <td>25</td>
+      <td>25</td>
+      <td>25</td>
+      <td>25</td>
+      <td>25</td>
+      <td>25</td>
+      <td>24</td>
+      <td>24</td>
+      <td>23</td>
+      <td>23</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG1456</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG1605</th>
+      <td>18</td>
+      <td>18</td>
+      <td>18</td>
+      <td>18</td>
+      <td>18</td>
+      <td>18</td>
+      <td>17</td>
+      <td>17</td>
+      <td>16</td>
+      <td>16</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG1614</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG1962</th>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>5</td>
+      <td>5</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG2037</th>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG2069</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG2119</th>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>27</td>
+      <td>27</td>
+      <td>26</td>
+      <td>26</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG2141</th>
+      <td>7</td>
+      <td>7</td>
+      <td>7</td>
+      <td>7</td>
+      <td>7</td>
+      <td>7</td>
+      <td>7</td>
+      <td>7</td>
+      <td>6</td>
+      <td>6</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG2218</th>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>3</td>
+      <td>3</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG2759</th>
+      <td>20</td>
+      <td>20</td>
+      <td>20</td>
+      <td>20</td>
+      <td>20</td>
+      <td>20</td>
+      <td>19</td>
+      <td>19</td>
+      <td>18</td>
+      <td>18</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG3104</th>
+      <td>26</td>
+      <td>26</td>
+      <td>26</td>
+      <td>26</td>
+      <td>26</td>
+      <td>26</td>
+      <td>25</td>
+      <td>25</td>
+      <td>24</td>
+      <td>24</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG3200</th>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>26</td>
+      <td>26</td>
+      <td>25</td>
+      <td>25</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG3252</th>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>4</td>
+      <td>4</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG3339</th>
+      <td>23</td>
+      <td>23</td>
+      <td>23</td>
+      <td>23</td>
+      <td>23</td>
+      <td>23</td>
+      <td>22</td>
+      <td>22</td>
+      <td>21</td>
+      <td>21</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG3383</th>
+      <td>16</td>
+      <td>16</td>
+      <td>16</td>
+      <td>16</td>
+      <td>16</td>
+      <td>16</td>
+      <td>15</td>
+      <td>15</td>
+      <td>14</td>
+      <td>14</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG3836</th>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>28</td>
+      <td>28</td>
+      <td>27</td>
+      <td>27</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COG4021</th>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>8</td>
+      <td>8</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>30 rows × 101 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_range</span><span class="p">,</span> <span class="n">clusters</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All OGs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>All OGs
+</pre></div>
+</div>
+<img alt="../_images/b3eea153b3d3d0f12088be5bcb9a1a0a4b6117a17b1979afcb49958ff0cce17a.png" src="../_images/b3eea153b3d3d0f12088be5bcb9a1a0a4b6117a17b1979afcb49958ff0cce17a.png" />
+</div>
+</div>
+<p>Based on this plot, choose a value for T that generates a reasonable number of clusters that are small enough to plot</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">Demo</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mf">0.85</span>
+
+<span class="n">clustering</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">hc</span><span class="o">.</span><span class="n">fcluster</span><span class="p">(</span>
+    <span class="n">linkage</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;distance&#39;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">Jaccard_dist</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">Counts</span> <span class="o">=</span> <span class="n">clustering</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">Counts</span> <span class="o">=</span> <span class="n">Counts</span><span class="p">[</span><span class="n">Counts</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">Counts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8    5
+1    3
+2    3
+7    2
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Determine in which clusters the WLP genes are.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">WLP_genes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;../Data/input/AllWLPGenes.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;COG&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="n">WLPClustering</span> <span class="o">=</span> <span class="n">clustering</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">clustering</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">WLP_genes</span><span class="p">)]</span>
+
+<span class="n">Counts</span> <span class="o">=</span> <span class="n">WLPClustering</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">Counts</span> <span class="o">=</span> <span class="n">Counts</span><span class="p">[</span><span class="n">Counts</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">clusternr</span> <span class="o">=</span> <span class="n">Counts</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WLP COG clusters:&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WLPClustering</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Count of WLP COGs per cluster&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WLP COG clusters: 
+           0
+COG        
+COG0190   8
+COG0280   7
+COG0282   7
+COG0373   9
+COG0685   8
+COG1152   5
+COG1410   8
+COG1456   1
+COG1614   1
+COG1962   3
+COG2037   2
+COG2069   1
+COG2141   4
+COG2218   2
+COG2759  12
+COG3252   2
+COG3383   8 
+
+ Count of WLP COGs per cluster 
+ 8    4
+1    3
+2    3
+7    2
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<section id="plot-the-largest-cluster">
+<h2>Plot the largest cluster<a class="headerlink" href="#plot-the-largest-cluster" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">function</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+    <span class="s2">&quot;CoreWLP&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">WLPClustering</span><span class="p">[</span><span class="n">WLPClustering</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">clusternr</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">lut</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">function</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="s2">&quot;g&quot;</span><span class="p">))</span>
+<span class="n">row_colors</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">lut</span><span class="p">)</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="n">clustering</span><span class="p">[</span><span class="n">clustering</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">clusternr</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+<span class="n">SubJaccard</span> <span class="o">=</span> <span class="n">Jaccard_dist</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="n">mask</span><span class="p">]</span>
+
+<span class="n">OGHeatMap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">SubJaccard</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">dendrogram_ratio</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">row_colors</span><span class="o">=</span><span class="n">row_colors</span><span class="p">,</span> <span class="n">cbar_pos</span><span class="o">=</span><span class="p">(</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">row_cluster</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 520 ms, sys: 122 ms, total: 642 ms
+Wall time: 312 ms
+</pre></div>
+</div>
+<img alt="../_images/861402d99a7f997ee5f5ef97a8f18fba883cce4f064273b884cb3ee2e122e2ef.png" src="../_images/861402d99a7f997ee5f5ef97a8f18fba883cce4f064273b884cb3ee2e122e2ef.png" />
+</div>
+</div>
+</section>
+<section id="plot-a-cluster-of-choice">
+<h2>Plot a cluster of choice<a class="headerlink" href="#plot-a-cluster-of-choice" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">ClusterOI</span> <span class="o">=</span> <span class="mi">1318</span>
+
+<span class="n">function</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+    <span class="s2">&quot;CoreWLP&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">WLPClustering</span><span class="p">[</span><span class="n">WLPClustering</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">ClusterOI</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">lut</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">function</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="s2">&quot;g&quot;</span><span class="p">))</span>
+<span class="n">row_colors</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">lut</span><span class="p">)</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="n">clustering</span><span class="p">[</span><span class="n">clustering</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">ClusterOI</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+<span class="n">SubJaccard</span> <span class="o">=</span> <span class="n">Jaccard_dist</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="n">mask</span><span class="p">]</span>
+
+<span class="n">OGHeatMap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">SubJaccard</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">dendrogram_ratio</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">row_colors</span><span class="o">=</span><span class="n">row_colors</span><span class="p">,</span> <span class="n">cbar_pos</span><span class="o">=</span><span class="p">(</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">row_cluster</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.22 s, sys: 749 ms, total: 1.97 s
+Wall time: 1.8 s
+</pre></div>
+</div>
+<img alt="../_images/5d19dfcd40b9fb091781e0508eb9aa93e6c99cf268e6a1cb83fd5f4c2ec79ab8.png" src="../_images/5d19dfcd40b9fb091781e0508eb9aa93e6c99cf268e6a1cb83fd5f4c2ec79ab8.png" />
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2_COG_PresenceTaxa.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Plot the NCBI classification tree from file</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="4_LGT_MSA%26Tree.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Manually add the archaeal COGs, use root level of EggNOG 6</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Load the OG DataFrame</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-jaccard-pairwise-distance">Compute the Jaccard pairwise distance</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-hierarchichal-clusters">Create Hierarchichal Clusters</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-largest-cluster">Plot the largest cluster</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-cluster-of-choice">Plot a cluster of choice</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Philip Gorter de Vries
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Philip Gorter de Vries.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
