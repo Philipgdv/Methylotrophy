@@ -1,5 +1,3 @@
-Methylotrophic Origin of Life
-=============================
 
 ```{include} ReadMe.md
 :parser: myst_parser.sphinx_
